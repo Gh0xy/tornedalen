@@ -9,5 +9,4 @@ public class TornedalenApplication {
     public static void main(String[] args) {
         SpringApplication.run(TornedalenApplication.class, args);
     }
-
 }
