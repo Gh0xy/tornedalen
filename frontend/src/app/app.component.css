@@ -1,7 +1,7 @@
 /* Specificera utseende, layout och egenskaper för body. Barnelement till body; element som existerar inom bodyn, ärver egenskaper som specificeras här */
 body {
-    font-family: 'Times New Roman', Times, serif;
-    /* Set the font to Times New Roman */
+    font-family: 'Georgia', serif;
+    /* Set the font to Georgia */
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,6 +10,82 @@ body {
     /* Arrange items in a column */
     min-height: 100vh;
     /* Full height for the body */
+  }
+  
+  /* Specificerar utseende och layout för <a>-element inom objekt av klassen .article-container */
+  .article-container a {
+    color: blue;
+    /* Gör alla länkar i artikelcontainern blå */
+  }
+  
+  /* Specificerar utseende och layout för <a>-element som hovras inom objekt av klassen .article-container */
+  .article-container a:visited {
+    color: purple;
+    /* Ändrar färgen på besökta länkar till lila */
+  }
+  
+  /* Klass som används för bilder i artiklar, styr utseende och layout av artikelbilder. */
+  .article-image {
+    max-width: 500px;
+    /* Sätt maxbredden till 500 pixlar */
+    width: 100%;
+    /* Responsive image */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-bottom: 5px;
+    /* Space below the image */
+  }
+  
+  /* Klass som används för text i artiklar, styr utseende och layout av artikeltext. */
+  .article-text {
+    flex: 2;
+    /* Gör artikeltexten större */
+    margin-right: 0px;
+    /* Lägg till utrymme mellan artikeltext och lista */
+  }
+
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #fdfaf6; /* Ljus, varm bakgrundsfärg */
+    position: relative;
+    padding-top: 20px;
+  }
+  
+  /* Klass article-container hanterar artiklar på sidan. Här specificeras inställningar kring dess utseende och egenskaper */
+  .article-container {
+    max-width: 1200px;
+    /* Öka maxbredd för att ge mer plats åt innehållet i objekt av denna klass */
+    margin: 20px auto;
+    /* Centrerar containern horisontellt */
+    background-color: #fff;
+    /* Vit bakgrund för artikeln */
+    border-radius: 5px;
+    /* Rundade hörn */
+    padding: 20px;
+    /* Padding inuti containern för önskat utrymme */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Lätt skugga för att ge sken av djup på sidan */
+    display: flex;
+    /* Aktiverar flexbox; gör bland annat att barnen i containern kan ligga bredvid varandra */
+    flex: 1;
+    /* flex: 1 gör att article-container expanderar för att fylla kvarvarande vertikalt utrymme, vilket här används för att hålla footern längst ner på sidan, även då sidan inte fylls ut med innehåll. */
+    /* flex: 1 kräver att förälderelementet måste ha display: flex eller display: inline-flex angivet. Föräldern i detta fall är elementet body, som har display: flex angivet i CSS-filen. Detta möjliggör för flexibla barn (i detta fall .article-container) att använda flexbox-layout */
+  }
+  
+  .side-deco {
+    width: 400px;
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .left-deco {
+    background-image: url('./pictures/samiskt_tema_hel.png'); /* Byt ut mot din egen fil */
+  }
+  
+  .right-deco {
+    background-image: url('./pictures/samiskt_tema_hel.png');
   }
   
   /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
@@ -44,6 +120,29 @@ body {
         margin: 5px 0; /* Justera marginalen för länkpanelen */
     }
   }
+
+  /* Navigation */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0;
+  margin-top: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #2e2e2e;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav ul li a:hover {
+  border-color: #2e2e2e;
+}
   
   
   /* CSS-stilar för <h1>, dvs det element som utgör hemsidans logo ("SW-Nyheter") högst upp på sidan. */
@@ -54,152 +153,146 @@ body {
     /* Skapa utrymme ovanför titeln */
     font-size: 40px;
     /* Ställ in storlek på titelns text */
+    
   }
+
+  /* Header */
+header {
+  background-color: #e6e2d3; /* dämpad beige ton */
+  color: #2e2e2e;
+  padding: 30px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
   
-  /* CSS-stilar för dropdown-meny-knapp */
-  .dropdown button {
-    width: 200px;
-    /* Bredd på knappen */
-    height: 30px;
-    /* Höjd på knappen */
-    font-size: 14px;
-    /* Storlek på texten */
-    padding: 0px;
-    /* Justering av knapptassar */
-    background-color: #d0e4e6;
-    /* Bakgrundsfärg */
-    color: #0000ff;
-    /* Textfärg */
-    border: 0px solid #d0e4e6;
-    /* Färg kantlinje */
-    border-radius: 5px;
-    /* Rundade hörn */
-    cursor: pointer;
-    /* Pekaren ändras till en hand */
-    position: fixed; 
-  }
-  
-  /*CSS-stilar för objekt av klassen .dropdown, dvs elementet som utgör en dropdown-meny på sidan. */
-  .dropdown {
-    position: fixed; /* Fixera knappar så de alltid syns på sidan, även om man skrollar ned.*/
-    top: 10px; 
-    left: 10px; 
-    padding: 10px;
-    display: inline-block; 
-  }
-  
-  .dropdown button:hover{
-    background-color: #bce3e6;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    top: 40px; /* Se till att rullgardinmenyn expanderas under knappen*/
-    padding: 10px;
-    z-index: 1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #eff4f5;
-  }
-  
-  /* CSS-stilar för dropdown-meny-knapp */
-  .login_button button {
-    width: 100px;
-    /* Bredd på knappen */
-    height: 30px;
-    /* Höjd på knappen */
-    font-size: 14px;
-    /* Storlek på texten */
-    padding: 0px;
-    /* Justering av knapptassar */
-    background-color: #ffffff;
-    /* Vit bakgrund */
-    color: #0000ff;
-    /* Svart textfärg */
-    border: 1px solid #0000ff;
-    /* Blå kantlinje */
-    border-radius: 5px;
-    /* Rundade hörn */
-    cursor: pointer;
-    /* Pekaren ändras till en hand */
-  }
-  
-  /*CSS-stilar för objekt av klassen .login_button, dvs elementet som utgör en logga in-knapp på sidan. */
-  .login_button {
-    position: fixed; /* Fixera knappar så de alltid syns på sidan, även om man skrollar ned.*/
-    top: 10px; 
-    right: 10px; 
-    padding: 10px;
-  }
-  
-  /* CSS-stilar för dropdown-meny-knapp */
-  .subscribe_button button {
-    width: 100px;
-    /* Bredd på knappen */
-    height: 30px;
-    /* Höjd på knappen */
-    font-size: 14px;
-    /* Storlek på texten */
-    padding: 0px;
-    /* Justering av knapptassar */
-    background-color: hwb(41 0% 0%);
-    /* Vit bakgrund */
-    color: #0000ff;
-    /* Svart textfärg */
-    border: 1px solid #0000ff;
-    /* Blå kantlinje */
-    border-radius: 5px;
-    /* Rundade hörn */
-    cursor: pointer;
-    /* Pekaren ändras till en hand */
-  }
-  /*CSS-stilar för objekt av klassen .subscribe_button, dvs elementet som utgör en bli medlem-knapp på sidan. */
-  .subscribe_button {
-    position: fixed; 
-    top: 10px; 
-    right: 120px; 
-    padding: 10px; 
-  }
-  
-  /* Ett objekt av denna klass utgör rubrik till en artikel om TV-serier; ska ha en lättsam och underhållande stil */
-  .fun-heading {
-    font-family: 'Comic Sans MS', 'Cursive', sans-serif;
-    /* Fun, playful font */
-    color: #e43c12;
-    /* Bright orange color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    /* Adds a slight shadow for depth */
-    font-size: 36px;
-    /* Larger text size */
-    background: linear-gradient(45deg, #f39c12, #f03405);
-    /* Gradient background for more color fun */
-    -webkit-background-clip: text;
-    /* Makes gradient apply to text */
-    background-clip: text;
-    /* Standard property for other browsers */
-    color: transparent;
-    /* Ensures text color becomes the gradient */
-    padding: 0px 0;
-    text-align: center;
-    letter-spacing: 2px;
-    /* Adds some space between the letters */
-  }
+ /* CSS-stilar för dropdown-meny-knapp */
+ .dropdown button {
+  width: 200px;
+  /* Bredd på knappen */
+  height: 30px;
+  /* Höjd på knappen */
+  font-size: 14px;
+  /* Storlek på texten */
+  padding: 0px;
+  /* Justering av knapptassar */
+  background-color: #d0e4e6;
+  /* Bakgrundsfärg */
+  color: #0000ff;
+  /* Textfärg */
+  border: 0.1px solid #56bfda;
+  /* Färg kantlinje */
+  border-radius: 5px;
+  /* Rundade hörn */
+  cursor: pointer;
+  /* Pekaren ändras till en hand */
+  position: fixed; 
+}
+
+/*CSS-stilar för objekt av klassen .dropdown, dvs elementet som utgör en dropdown-meny på sidan. */
+.dropdown {
+  position: fixed; /* Fixera knappar så de alltid syns på sidan, även om man skrollar ned.*/
+  top: 10px; 
+  left: 10px; 
+  padding: 10px;
+  display: inline-block; 
+}
+
+.dropdown button:hover{
+  background-color: #bce3e6;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  top: 40px; /* Se till att rullgardinmenyn expanderas under knappen*/
+  padding: 10px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #eff4f5;
+}
+
+/* CSS-stilar för dropdown-meny-knapp */
+.login_button button {
+  width: 100px;
+  /* Bredd på knappen */
+  height: 30px;
+  /* Höjd på knappen */
+  font-size: 14px;
+  /* Storlek på texten */
+  padding: 0px;
+  /* Justering av knapptassar */
+  background-color: #ffffff;
+  /* Vit bakgrund */
+  color: #0000ff;
+  /* Svart textfärg */
+  border: 1px solid #0000ff;
+  /* Blå kantlinje */
+  border-radius: 5px;
+  /* Rundade hörn */
+  cursor: pointer;
+  /* Pekaren ändras till en hand */
+}
+
+/*CSS-stilar för objekt av klassen .login_button, dvs elementet som utgör en logga in-knapp på sidan. */
+.login_button {
+  position: fixed; /* Fixera knappar så de alltid syns på sidan, även om man skrollar ned.*/
+  top: 10px; 
+  right: 10px; 
+  padding: 10px;
+}
+
+/* CSS-stilar för dropdown-meny-knapp */
+.subscribe_button button {
+  width: 100px;
+  /* Bredd på knappen */
+  height: 30px;
+  /* Höjd på knappen */
+  font-size: 14px;
+  /* Storlek på texten */
+  padding: 0px;
+  /* Justering av knapptassar */
+  background-color: hwb(41 0% 0%);
+  /* Vit bakgrund */
+  color: #0000ff;
+  /* Svart textfärg */
+  border: 1px solid #0000ff;
+  /* Blå kantlinje */
+  border-radius: 5px;
+  /* Rundade hörn */
+  cursor: pointer;
+  /* Pekaren ändras till en hand */
+}
+/*CSS-stilar för objekt av klassen .subscribe_button, dvs elementet som utgör en bli medlem-knapp på sidan. */
+.subscribe_button {
+  position: fixed; 
+  top: 10px; 
+  right: 120px; 
+  padding: 10px; 
+}
   
   /* Ett objekt av denna klass utgör en rubrik som ska mer seriös ut */
   .serious-heading {
@@ -270,12 +363,6 @@ body {
     /* Ta bort understrykning för länkar i flikmeny */
     font-weight: bold;
     /* Fet stil på alternativ i flikmeny */
-  }
-  
-  /* Specificerar inställningar för när användaren hovrar över länkarna i flikmenyn (länkarna finns i <nav> -> <ul> -> <li> -> <a>). När muspekaren förs över en länk, kommer länken att understrykas. */
-  nav ul li a:hover {
-    text-decoration: underline;
-    /* Understryk länk i flikmenyn när muspekaren är ovanför */
   }
   
   /* Specificerar inställningar för objekt/element som tilldelas  denna klass; alltså länkpanelen. */
@@ -426,59 +513,6 @@ body {
   #topic-articles a:hover {
     text-decoration: underline;
     /* Underline on hover */
-  }
-  
-  /* Klass article-container hanterar artiklar på sidan. Här specificeras inställningar kring dess utseende och egenskaper */
-  .article-container {
-    max-width: 1200px;
-    /* Öka maxbredd för att ge mer plats åt innehållet i objekt av denna klass */
-    margin: 20px auto;
-    /* Centrerar containern horisontellt */
-    background-color: #fff;
-    /* Vit bakgrund för artikeln */
-    border-radius: 5px;
-    /* Rundade hörn */
-    padding: 20px;
-    /* Padding inuti containern för önskat utrymme */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Lätt skugga för att ge sken av djup på sidan */
-    display: flex;
-    /* Aktiverar flexbox; gör bland annat att barnen i containern kan ligga bredvid varandra */
-    flex: 1;
-    /* flex: 1 gör att article-container expanderar för att fylla kvarvarande vertikalt utrymme, vilket här används för att hålla footern längst ner på sidan, även då sidan inte fylls ut med innehåll. */
-    /* flex: 1 kräver att förälderelementet måste ha display: flex eller display: inline-flex angivet. Föräldern i detta fall är elementet body, som har display: flex angivet i CSS-filen. Detta möjliggör för flexibla barn (i detta fall .article-container) att använda flexbox-layout */
-  }
-  
-  /* Specificerar utseende och layout för <a>-element inom objekt av klassen .article-container */
-  .article-container a {
-    color: blue;
-    /* Gör alla länkar i artikelcontainern blå */
-  }
-  
-  /* Specificerar utseende och layout för <a>-element som hovras inom objekt av klassen .article-container */
-  .article-container a:visited {
-    color: purple;
-    /* Ändrar färgen på besökta länkar till lila */
-  }
-  
-  /* Klass som används för bilder i artiklar, styr utseende och layout av artikelbilder. */
-  .article-image {
-    max-width: 500px;
-    /* Sätt maxbredden till 500 pixlar */
-    width: 100%;
-    /* Responsive image */
-    height: auto;
-    /* Maintain aspect ratio */
-    margin-bottom: 5px;
-    /* Space below the image */
-  }
-  
-  /* Klass som används för text i artiklar, styr utseende och layout av artikeltext. */
-  .article-text {
-    flex: 2;
-    /* Gör artikeltexten större */
-    margin-right: 0px;
-    /* Lägg till utrymme mellan artikeltext och lista */
   }
   
   /* Här specificeras utseende och egenskaper för element av klassen accordion*/
@@ -816,22 +850,20 @@ body {
     height: auto; /* Bevarar proportionerna */
   }
   
-  /* Specificerar CSS-stilar för footer. */
-  footer {
-    background-color: #000000;
-    /* Background color for footer */
-    color: white;
-    /* Footer text color */
-    text-align: center;
-    /* Center text in footer */
-    padding: 10px;
-    /* Padding for footer */
-  }
-  
-  /* Specificerar CSS-stilar för länkar i footer. */
-  footer a {
-    text-decoration: underline;
-    /* Understryker länken i fotern */
-    color: white;
-    /* Vit färg för länken */
-  }
+  /* Footer */
+footer {
+  background-color: #2e2e2e;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: auto;
+}
+
+footer a {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

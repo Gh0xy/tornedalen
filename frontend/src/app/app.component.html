@@ -40,12 +40,16 @@
   <a routerLink="/home">Hem</a>
 </div>
 
-<!-- Här visas det som ändras mellan sidorna -->
-<main class="article-container">
-  
+<!-- Layout med sidodekorationer -->
+<div class="main-wrapper">
+  <div class="side-deco left-deco"></div>
+
+  <main class="article-container">
     <router-outlet></router-outlet>
-  
-</main>
+  </main>
+
+  <div class="side-deco right-deco"></div>
+</div>
 
 <footer>
   <p>&copy; 2025 Tornedalens Museum</p>
