@@ -3,11 +3,36 @@
   <p>Ta del av våra aktuella utställningar.</p>
 </div>
 
-<!-- Visa YouTube-videorna -->
-<div class="video-wrapper" *ngFor="let video of videos">
-  <iframe [src]="video | safeUrl"
-          width="560" height="315"
-          frameborder="0"
-          allowfullscreen>
-  </iframe>
+<div class="video-box" *ngFor="let video of videos; let i = index">
+  <div class="video-content">
+    <!-- Video + Beskrivning -->
+    <div class="video-area">
+      <iframe
+        width="420"
+        height="236"
+        [src]="video.url | safeUrl"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+
+      <div class="description-box">
+        <p>{{ video.description }}</p>
+      </div>
+    </div>
+
+    <!-- Stjärnor & Betyg under beskrivningen -->
+    <div class="stars-box">
+      <div class="stars">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          (click)="setRating(i, star)"
+          [class.filled]="star <= video.rating"
+          class="star">
+          ★
+        </span>
+      </div>
+      <p>Betyg: {{ video.rating }}/5</p>
+    </div>
+  </div>
 </div>
+

@@ -6,14 +6,30 @@ import { SafeUrlPipe } from './safe-url.pipe';
 @Component({
   selector: 'app-exhibits',
   standalone: true,
-  imports: [CommonModule, RouterModule, SafeUrlPipe], // Lägg till pipen här
+  imports: [CommonModule, RouterModule, SafeUrlPipe],
   templateUrl: './exhibits.component.html',
-  styleUrls: ['../../../styles.css']
+  styleUrls: ['./exhibits.component.css']
 })
 export class ExhibitsComponent {
-  videos: string[] = [
-    'https://www.youtube.com/embed/bbf0-ge4MzY',
-    'https://www.youtube.com/embed/TwuVIb4lAj4',
-    'https://www.youtube.com/embed/Jab97M0bmvc'
+  videos: { url: string; rating: number; description: string }[] = [
+    {
+      url: 'https://www.youtube.com/embed/bbf0-ge4MzY',
+      rating: 0,
+      description: 'En introduktion till Konsthall Tornedalen och platsens historia.'
+    },
+    {
+      url: 'https://www.youtube.com/embed/TwuVIb4lAj4',
+      rating: 0,
+      description: 'En intervju med en lokal konstnär om det kreativa arbetet i regionen.'
+    },
+    {
+      url: 'https://www.youtube.com/embed/Jab97M0bmvc',
+      rating: 0,
+      description: 'Dokumentär om Tornedalens natur och hur den inspirerat konsten.'
+    }
   ];
+
+  setRating(videoIndex: number, rating: number): void {
+    this.videos[videoIndex].rating = rating;
+  }
 }
