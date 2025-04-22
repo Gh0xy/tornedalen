@@ -2,28 +2,37 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
     loadComponent: () =>
-      import('./home/home.component').then((m) => m.HomeComponent),
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'quiz',
     loadComponent: () =>
-      import('./quiz/quiz.component').then((m) => m.QuizComponent),
+      import('./pages/quiz/quiz.component').then((m) => m.QuizComponent),
   },
   {
     path: 'contact',
     loadComponent: () =>
-      import('./contact/contact.component').then((m) => m.ContactComponent),
+      import('./pages/contact/contact.component').then((m) => m.ContactComponent),
   },
   {
     path: 'discussion',
     loadComponent: () =>
-      import('./discussion/discussion.component').then((m) => m.DiscussionComponent),
+      import('./pages/discussion/discussion.component').then((m) => m.DiscussionComponent),
   },
   {
     path: 'exhibits',
     loadComponent: () =>
-      import('./exhibits/exhibits.component').then((m) => m.ExhibitsComponent),
+      import('./pages/exhibits/exhibits.component').then((m) => m.ExhibitsComponent),
   },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
