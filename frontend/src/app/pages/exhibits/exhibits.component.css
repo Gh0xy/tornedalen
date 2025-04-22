@@ -12,6 +12,7 @@ body {
     /* Full height for the body */
 }
 
+
 /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
 /* Media query för mindre skärmar */
 @media (max-width: 768px) {
@@ -835,3 +836,60 @@ footer a {
     color: white;
     /* Vit färg för länken */
 }
+.video-box {
+    border: 1px solid #ccc; /* Lägger till en tunn grå ram runt videoboxen */
+    padding: 20px; /* Ger ett mellanrum på 20px inuti rutan för att separera innehållet från kanterna */
+    margin-bottom: 30px; /* Lägger till ett avstånd på 30px mellan denna box och nästa element nedanför */
+    border-radius: 8px; /* Rundar hörnen på videoboxen med 8px */
+    background-color: #f9f9f9; /* Sätter bakgrundsfärgen till ljusgrå */
+  }
+  
+  .video-content {
+    display: flex; /* Gör att innehållet blir flexibelt, så att det kan ordnas horisontellt eller vertikalt */
+    flex-direction: column; /* Arrangerar innehållet i en kolumn (vertikalt) */
+    align-items: flex-start; /* Justerar innehållet så att det är vänsterjusterat */
+    gap: 20px; /* Lägger ett mellanrum på 20px mellan varje element i kolumnen */
+  }
+  
+  .video-area {
+    display: flex; /* Gör det flexibelt så att innehållet kan ordnas dynamiskt */
+    flex-direction: column; /* Arrangerar innehållet i en kolumn */
+    align-items: flex-start; /* Justerar innehållet så att det är vänsterjusterat */
+    gap: 10px; /* Lägger till ett mellanrum på 10px mellan varje element */
+  }
+  
+  .description-box {
+    background-color: #f3f3f3; /* Sätter bakgrundsfärgen till en ljusgrå nyans */
+    padding: 10px; /* Lägger till ett mellanrum på 10px runt texten inuti boxen */
+    border-radius: 4px; /* Rundar hörnen på beskrivningsboxen med 4px */
+    max-width: 420px; /* Sätter ett maxbreddvärde på 420px för beskrivningsboxen */
+    font-size: 15px; /* Ställer in textstorleken på 15px för beskrivningstexten */
+  }
+  
+  .stars-box {
+    display: flex; /* Gör så att innehållet i denna box ordnas flexibelt */
+    flex-direction: column; /* Arrangerar stjärnorna vertikalt */
+    align-items: flex-start; /* Justerar stjärnorna så att de är vänsterjusterade */
+    padding: 10px; /* Lägger till ett mellanrum på 10px runt stjärnorna */
+    margin-top: 10px; /* Lägger till ett avstånd på 10px ovanför stjärnorna */
+  }
+  
+  .stars {
+    font-size: 2rem; /* Sätter fontstorleken på stjärnorna till 2 rem, vilket gör stjärnorna större */
+    color: lightgray; /* Sätter färgen på stjärnorna till ljusgrå när de inte är fyllda */
+    cursor: pointer; /* Gör stjärnorna klickbara (ändrar muspekaren till en hand när man hovrar över den) */
+  }
+  
+  .stars .filled {
+    color: gold; /* När en stjärna är fylld (dvs. användaren har betygsatt den), ändras färgen till guld */
+  }
+  
+  .star {
+    cursor: pointer; /* Gör att muspekaren ändras till en hand när man hovrar över stjärnorna */
+    margin-right: 5px; /* Lägger ett mellanrum på 5px mellan varje stjärna */
+  }
+  
+  iframe {
+    border-radius: 8px; /* Rundar hörnen på iframen (videon) med 8px */
+  }
+  
