@@ -1,0 +1,68 @@
+<div class="article-text">
+
+    <h2>Kontakt</h2>
+    <p>Ställ en fråga till oss! (Lägg in ett kontaktformulär t. ex.)</p>
+
+
+  
+  </div>
+
+  <!-- Membership Form Section -->
+  <section id="topic-articles">
+    <div class="form-container">
+        <h2>Kontaktformulär</h2>
+        <!-- Elementet <form> skapar grunden för ett formulär som kan skicka inmatad data till en server. -->
+        <form class="form" action="process_contact_form" method="POST">
+            <!-- "action"-attributet anger URL:en till servern där data ska skickas när formuläret skickas. -->
+            <!-- "method"-attributet specificerar vilken HTTP-metod som ska användas för att skicka data. -->
+            <!-- I det här fallet används POST; innebär att data skickas i form av en HTTP POST-förfrågan, vilket gör att användardata inte syns i URL:en och kan hanteras säkrare än GET. -->
+
+            <div class="form-group">
+                <!-- Placera etiketter och formulärfält i ett div-element i klassen "supportform-group". I CSS-filen finns kod för denna klass som ökar formulärets flexibilitet-->
+                <!-- Ditt namn: Label och inputfält för användarens namn -->
+                <label for="förnamn">Förnamn:</label>
+                <!-- Label är etiketten för textfältet. Etiketten Kopplas till inputfältet via for="namn"; detta gör att det relevanta textfältet markeras när man klickar på etiketten.-->
+                <input type="text" id="förnamn" name="förnamn" placeholder="Ange förnamn" required
+                    aria-required="true">
+                <!-- aria-required="true" gör att skärmläsare informerar om att fält är obligatoriskt-->
+                <!-- Attributet name="namn" kopplar samman den inmatade texten med det namn som servern kan referera till när formuläret skickas. -->
+                <!-- Ett textfält där användaren kan skriva sitt namn. id="namn" används för att koppla etiketten till detta fält.-->
+                <!-- name="namn" används för att definiera det unika namnet på detta fält som skickas med formuläret. -->
+                <!-- required: Detta attribut gör att fältet måste fyllas i innan formuläret kan skickas, vilket säkerställer att användaren anger sitt namn. -->
+            </div> <!-- Stäng div-element. -->
+
+            <div class="form-group">
+            <label for="efternamn">Efternamn:</label>
+            <input type="text" id="efternamn" name="efternamn" placeholder="Ange efternamn" required
+                    aria-required="true">
+                </div>
+
+            <div class="form-group">
+                <!-- Telefon: Label och inputfält för användarens telefonnummer, samma princip som ovan -->
+                <label for="telefon">Telefon:</label>
+                <input type="tel" id="telefon" name="telefon" pattern="^(\+46|0)[0-9]{7,12}$"
+                    placeholder="T.ex. 0738393434">
+                <!-- pattern: start sträng ^, börja med +46/0, sen 7-12 siffror, slut sträng $-->
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-postadress:</label>
+                <input type="email" id="email" name="email" placeholder="T.ex. namn@exempel.com" required
+                    aria-required="true">
+                <!-- input type "email" gör att input behöver vara formaterad likt en epostadress (*text*@*text*)-->
+            </div>
+
+            <div class="form-group">
+                <!-- Beskrivning: Label och textområde för användarens beskrivning, detta fall används textarea istället för input då vi vill möjliggöra inmatning av större antal tecken  -->
+                <label for="beskrivning">Meddelande:</label>
+                <!-- <textarea> skapar ett större textfält där användaren kan skriva in en längre beskrivning, antalet rows reglerar storleken på textarea, min antal tecken är 10, max är 200 -->
+                <textarea id="beskrivning" name="beskrivning" rows="4" minlength="10" maxlength="200"
+                    placeholder="Ditt meddelande till oss" required aria-required="true"></textarea>
+            </div>
+
+            <!-- input type="submit" är en HTML-formulärknapp som används för att skicka in det ifyllda formuläret till en server för bearbetning. -->
+            <!-- När användaren klickar på denna knapp skickas all data som användaren har fyllt i i formuläret till den serveradress som anges i action-attributet i <form>-taggen. -->
+                <button type="submit">Skicka</button>
+        </form> <!-- Stäng <form>-element-->
+    </div>
+</section>
