@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router'; // Importera RouterModule här
+import { SafeUrlPipe } from './pages/exhibits/safe-url.pipe';
 
 @Component({
   selector: 'app-root',

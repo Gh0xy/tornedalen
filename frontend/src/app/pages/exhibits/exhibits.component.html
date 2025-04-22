@@ -2,3 +2,12 @@
   <h2>Utställningar</h2>
   <p>Ta del av våra aktuella utställningar.</p>
 </div>
+
+<!-- Visa YouTube-videorna -->
+<div class="video-wrapper" *ngFor="let video of videos">
+  <iframe [src]="video | safeUrl"
+          width="560" height="315"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
