@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrls: ['../../../styles.css']
+  styleUrls: ['./home.component.css'] // Använd specifik CSS-fil för denna komponent.
 })
 export class HomeComponent {}
