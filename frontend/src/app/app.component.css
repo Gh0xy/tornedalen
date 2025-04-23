@@ -49,7 +49,7 @@ body {
     justify-content: center;
     background-color: #fdfaf6; /* Ljus, varm bakgrundsfärg */
     position: relative;
-    padding-top: 20px;
+    padding-top: 0px;
   }
   
   /* Klass article-container hanterar artiklar på sidan. Här specificeras inställningar kring dess utseende och egenskaper */
