@@ -1,34 +1,23 @@
-// src/app/pages/discussion/discussion.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Router,RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Post } from '../../models/post.model';
-import { PostService } from '../../services/post.service';  // Importera PostService
+import { PostService } from '../../services/post.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';  // Importera CommonModule
-
+import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-discussion',
   standalone: true,
-  imports: [RouterModule,FormsModule],  // Kontrollera att FormsModule är importerat
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './discussion.component.html',
   styleUrls: ['./discussion.component.css']
 })
-
 export class DiscussionComponent implements OnInit {
   posts: Post[] = [];
-
   isModalOpen = false;
 
-  openModal() {
-    this.isModalOpen = true;
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
-  }
-  
-  // Formulärfält
+  // Form fields
   subject: string = '';
   author: string = '';
   email: string = '';
@@ -36,7 +25,8 @@ export class DiscussionComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private postService: PostService  // Injicera PostService
+    private postService: PostService,
+    private languageService: LanguageService // Inject LanguageService
   ) {}
 
   ngOnInit() {
@@ -47,9 +37,17 @@ export class DiscussionComponent implements OnInit {
     });
   }
 
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
   createPost() {
     if (!this.subject || !this.author || !this.email || !this.content) {
-      alert('Var vänlig fyll i alla obligatoriska fält!');
+      alert(this.getTranslation('FILL_ALL_FIELDS'));
       return;
     }
 
@@ -61,13 +59,11 @@ export class DiscussionComponent implements OnInit {
       content: this.content,
       date: new Date(),
     };
-    
-    this.closeModal(); // Stänger popup efter inlämning om du vill
 
-    // Lägg till det nya inlägget via PostService
+    this.closeModal();
+
     this.postService.addPost(newPost).subscribe(post => {
-      // Lägg till det nya inlägget i arrayen och visa det direkt
-      this.posts.unshift(post); // Lägg till det nyaste inlägget först
+      this.posts.unshift(post);
       this.resetForm();
     });
   }
@@ -81,5 +77,70 @@ export class DiscussionComponent implements OnInit {
 
   navigateTo(route: string) {
     this.router.navigate([route]);
+  }
+
+  // Function to get translated text
+  getTranslation(key: string): string {
+    const currentLanguage = this.languageService.getLanguage();
+    const translations: { [key: string]: { [key: string]: string } } = {
+      DISCUSSION_TITLE: {
+        sv: 'Inlägg',
+        en: 'Posts',
+        fi: 'Viestit',
+        me: 'Viestit',
+        sa: 'Čállosat'
+      },
+      CREATE_POST: {
+        sv: 'Skapa nytt inlägg',
+        en: 'Create a new post',
+        fi: 'Luo uusi viesti',
+        me: 'Luo uusi viesti',
+        sa: 'Čájeha ođđa čállosa'
+      },
+      SUBJECT: {
+        sv: 'Ämne',
+        en: 'Subject',
+        fi: 'Aihe',
+        me: 'Aihe',
+        sa: 'Ášši'
+      },
+      AUTHOR: {
+        sv: 'Författare',
+        en: 'Author',
+        fi: 'Kirjoittaja',
+        me: 'Kirjoittaja',
+        sa: 'Čállit'
+      },
+      EMAIL: {
+        sv: 'E-post',
+        en: 'Email',
+        fi: 'Sähköposti',
+        me: 'Sähköposti',
+        sa: 'E-poasta'
+      },
+      CONTENT: {
+        sv: 'Inlägg',
+        en: 'Content',
+        fi: 'Sisältö',
+        me: 'Sisältö',
+        sa: 'Sisdoallu'
+      },
+      SUBMIT_POST: {
+        sv: 'Skicka Inlägg',
+        en: 'Submit Post',
+        fi: 'Lähetä viesti',
+        me: 'Lähetä viesti',
+        sa: 'Sádde čállosa'
+      },
+      FILL_ALL_FIELDS: {
+        sv: 'Var vänlig fyll i alla obligatoriska fält!',
+        en: 'Please fill in all required fields!',
+        fi: 'Täytä kaikki pakolliset kentät!',
+        me: 'Täytä kaikki pakolliset kentät!',
+        sa: 'Fylli buot dárbbašlaš gávppit!'
+      }
+    };
+
+    return translations[key]?.[currentLanguage] || key;
   }
 }

@@ -1,19 +1,19 @@
 <div class="article-text">
-  <h2>Välkommen till Tornedalens Museum</h2>
+  <h2>{{ getTranslation('WELCOME_TITLE') }}</h2>
   <p>
-    Tornedalens Museum är ett kulturhistoriskt museum beläget i hjärtat av Tornedalen. Här belyser vi regionens historia och kultur.
+    {{ getTranslation('WELCOME_TEXT') }}
   </p>
   <p>
-    På denna sida kan du läsa mer om våra utställningar, göra quiz, delta i diskussioner eller komma i kontakt med oss.
+    {{ getTranslation('EXPLORE_RESOURCES') }}
   </p>
 
-  <h2>Utforska våra digitala resurser</h2>
+  <h2>{{ getTranslation('EXPLORE_RESOURCES') }}</h2>
   <ul>
-    <li><a routerLink="/exhibits">Se aktuella utställningar</a></li>
-    <li><a routerLink="/quiz">Testa dina kunskaper i vårt quiz</a></li>
-    <li><a routerLink="/discussion">Delta i diskussioner</a></li>
-    <li><a routerLink="/contact">Kontakta oss!</a></li>
+    <li><a routerLink="/exhibits">{{ getTranslation('EXHIBITS') }}</a></li>
+    <li><a routerLink="/quiz">{{ getTranslation('QUIZ') }}</a></li>
+    <li><a routerLink="/discussion">{{ getTranslation('DISCUSSION') }}</a></li>
+    <li><a routerLink="/contact">{{ getTranslation('CONTACT') }}</a></li>
   </ul>
 
-  <img src="assets/bilder/museum_utsida.jpg" alt="Tornedalens Museum utsida" class="general-image">
+  <img src="assets/bilder/museum_utsida.jpg" [alt]="getTranslation('IMAGE_ALT')" class="general-image">
 </div>
