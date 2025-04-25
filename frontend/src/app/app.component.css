@@ -76,12 +76,13 @@ body {
   .side-deco {
     width: 400px;
     background-repeat: repeat-y;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    filter: grayscale(25%); /* Gör bilden svartvit */
   }
   
   .left-deco {
-    background-image: url('./pictures/samiskt_tema_hel.png'); /* Byt ut mot din egen fil */
+    background-image: url('./pictures/samiskt_tema_hel.png');
   }
   
   .right-deco {
