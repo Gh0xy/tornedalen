@@ -4,38 +4,62 @@
 
 <!-- Dropdown menu -->
 <div class="dropdown">
-  <button>Mer</button>
+  <button>{{ getTranslation('MORE') }}</button>
   <div class="dropdown-content">
-    <a routerLink="/contact">Kontakt</a>
-    <a routerLink="/discussion">Diskussion</a>
-    <a routerLink="/about">Om museet</a>
+    <a routerLink="/contact">{{ getTranslation('CONTACT') }}</a>
+    <a routerLink="/discussion">{{ getTranslation('DISCUSSION') }}</a>
+    <a routerLink="/about">{{ getTranslation('ABOUT') }}</a>
+  </div>
+</div>
+
+<!-- Language Selector -->
+<div class="language-selector">
+  <button class="flag-button swedish-flag" (click)="toggleLanguageBar()">
+    <img [src]="getFlagImage()" [alt]="languageService.getLanguage()">
+  </button>
+  <div class="language-bar" *ngIf="showLanguageBar">
+    <button class="flag-button" (click)="changeLanguage('sv')">
+      <img src="assets/bilder/sweden.png" alt="Svenska">
+    </button>
+    <button class="flag-button" (click)="changeLanguage('me')">
+      <img src="assets/bilder/meankieli.png" alt="Meänkieli">
+    </button>
+    <button class="flag-button" (click)="changeLanguage('fi')">
+      <img src="assets/bilder/finland.png" alt="Finska">
+    </button>
+    <button class="flag-button" (click)="changeLanguage('sa')">
+      <img src="assets/bilder/sami.png" alt="Nordsamiska">
+    </button>
+    <button class="flag-button" (click)="changeLanguage('en')">
+      <img src="assets/bilder/uk.png" alt="Engelska">
+    </button>
   </div>
 </div>
 
 <!-- Login button -->
 <div class="login_button">
-  <button routerLink="/login">Logga in</button>
+  <button routerLink="/login">{{ getTranslation('LOGIN') }}</button>
 </div>
 
 <!-- Subscribe button -->
 <div class="subscribe_button">
-  <button routerLink="/subscribe">Bli medlem</button>
+  <button routerLink="/subscribe">{{ getTranslation('SUBSCRIBE') }}</button>
 </div>
 
 <header>
-  <h1><a routerLink="/home">Tornedalens Museum</a></h1>
+  <h1><a routerLink="/home">{{ getTranslation('WELCOME') }}</a></h1>
   <nav>
     <ul>
-      <li><a routerLink="/home">Hem</a></li>
-      <li><a routerLink="/exhibits">Utställningar</a></li>
-      <li><a routerLink="/quiz">Quiz</a></li>
-      <li><a routerLink="/contact">Kontakt</a></li>
-      <li><a routerLink="/discussion">Diskussion</a></li>
+      <li><a routerLink="/home">{{ getTranslation('HOME') }}</a></li>
+      <li><a routerLink="/exhibits">{{ getTranslation('EXHIBITS') }}</a></li>
+      <li><a routerLink="/quiz">{{ getTranslation('QUIZ') }}</a></li>
+      <li><a routerLink="/contact">{{ getTranslation('CONTACT') }}</a></li>
+      <li><a routerLink="/discussion">{{ getTranslation('DISCUSSION') }}</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- Layout med sidodekorationer -->
+<!-- Layout with side decorations -->
 <div class="main-wrapper">
   <div class="side-deco left-deco"></div>
 
@@ -47,6 +71,6 @@
 </div>
 
 <footer>
-  <p>&copy; 2025 Tornedalens Museum</p>
-  <p><a routerLink="/about">Om museet</a></p>
+  <p>&copy; 2025 {{ getTranslation('MUSEUM_NAME') }}</p>
+  <p><a routerLink="/about">{{ getTranslation('ABOUT') }}</a></p>
 </footer>

@@ -1,8 +1,6 @@
 <div class="article-text">
-  <h1 class="page-title">Inlägg</h1>
+ <h1 class="page-title">{{ getTranslation('DISCUSSION_TITLE') }}</h1>
 
-
-  
   <!-- Lista över alla sparade inlägg -->
   <ul class="post-list" *ngIf="posts.length; else emptyMsg">
     <li *ngFor="let p of posts">
@@ -26,65 +24,62 @@
   <div class="modal" [class.show]="isModalOpen"> … </div>
 </div>
  
-  <!-- Knappen som öppnar modalen -->
-  <button class="elegant-button" (click)="openModal()">Skapa inlägg</button>
-  
-  <!-- Själva modalen -->
+  <!-- Button to open the modal -->
+  <button class="elegant-button" (click)="openModal()">{{ getTranslation('CREATE_POST') }}</button>
+
+  <!-- Modal -->
   <div class="modal" [class.show]="isModalOpen">
     <div class="modal-content">
       <span class="close-button" (click)="closeModal()">&times;</span>
-  
-      <!-- Här är ditt formulär -->
-      <div class="discussion-form">
-        <h3>Skapa nytt inlägg</h3>
-        <form (ngSubmit)="createPost()">
 
-          <label for="subject">Ämne</label>
+      <!-- Form -->
+      <div class="discussion-form">
+        <h3>{{ getTranslation('CREATE_POST') }}</h3>
+        <form (ngSubmit)="createPost()">
+          <label for="subject">{{ getTranslation('SUBJECT') }}</label>
           <input
             type="text"
             id="subject"
             [(ngModel)]="subject"
             name="subject"
             required
-            placeholder="Ange ämne för inlägget"
+            placeholder="{{ getTranslation('SUBJECT') }}"
             class="form-input"
           />
 
-          <label for="author">Författare</label>
-    <input
-      type="text"
-      id="author"
-      [(ngModel)]="author"
-      name="author"
-      required
-      placeholder="Ange ditt namn"
-      class="form-input"
-    />
-  
-          <!-- E-post fält -->
-    <label for="email">E-post</label>
-    <input
-      type="email"
-      id="email"
-      [(ngModel)]="email"
-      name="email"
-      required
-      placeholder="Ange din e-postadress"
-      class="form-input"
-    />
-  
-          <!-- Inlägg fält -->
-    <label for="content">Inlägg</label>
-    <textarea
-      id="content"
-      [(ngModel)]="content"
-      name="content"
-      required
-      placeholder="Skriv ditt inlägg här"
-      class="form-input"
-    ></textarea>
-  
-          <button type="submit">Skicka Inlägg</button>
+          <label for="author">{{ getTranslation('AUTHOR') }}</label>
+          <input
+            type="text"
+            id="author"
+            [(ngModel)]="author"
+            name="author"
+            required
+            placeholder="{{ getTranslation('AUTHOR') }}"
+            class="form-input"
+          />
+
+          <label for="email">{{ getTranslation('EMAIL') }}</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            name="email"
+            required
+            placeholder="{{ getTranslation('EMAIL') }}"
+            class="form-input"
+          />
+
+          <label for="content">{{ getTranslation('CONTENT') }}</label>
+          <textarea
+            id="content"
+            [(ngModel)]="content"
+            name="content"
+            required
+            placeholder="{{ getTranslation('CONTENT') }}"
+            class="form-input"
+          ></textarea>
+
+          <button type="submit">{{ getTranslation('SUBMIT_POST') }}</button>
         </form>
       </div>
     </div>

@@ -1,12 +1,127 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router'; // Importera RouterModule här
-import { SafeUrlPipe } from './pages/exhibits/safe-url.pipe';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule], // Lägg till RouterModule här också
+  imports: [RouterModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+  showLanguageBar = false; // State to toggle the language bar
+
+  constructor(public languageService: LanguageService) {} // Changed to public
+
+  // Function to toggle the visibility of the language bar
+  toggleLanguageBar() {
+    this.showLanguageBar = !this.showLanguageBar;
+  }
+
+  // Function to change the language
+  changeLanguage(lang: string) {
+    console.log(`Language changed to: ${lang}`);
+    this.languageService.setLanguage(lang); // Update the language in the service
+    this.showLanguageBar = false; // Close the language bar after selection
+  }
+
+  // Function to get translated text
+  getTranslation(key: string): string {
+    const currentLanguage = this.languageService.getLanguage(); // Get the current language from the service
+    const translations: { [key: string]: { [key: string]: string } } = {
+      HOME: {
+        sv: 'Hem',
+        en: 'Home',
+        fi: 'Koti',
+        me: 'Koti',
+        sa: 'Báiki'
+      },
+      EXHIBITS: {
+        sv: 'Utställningar',
+        en: 'Exhibits',
+        fi: 'Näyttelyt',
+        me: 'Näyttelyt',
+        sa: 'Bihttá'
+      },
+      QUIZ: {
+        sv: 'Quiz',
+        en: 'Quiz',
+        fi: 'Tietovisa',
+        me: 'Tietovisa',
+        sa: 'Jearahallat'
+      },
+      CONTACT: {
+        sv: 'Kontakt',
+        en: 'Contact',
+        fi: 'Yhteystiedot',
+        me: 'Yhteystiedot',
+        sa: 'Oktavuohta'
+      },
+      DISCUSSION: {
+        sv: 'Diskussion',
+        en: 'Discussion',
+        fi: 'Keskustelu',
+        me: 'Keskustelu',
+        sa: 'Digaštallan'
+      },
+      WELCOME: {
+        sv: 'Välkommen till Tornedalens Museum',
+        en: 'Welcome to Tornedalens Museum',
+        fi: 'Tervetuloa Tornedalens Museoon',
+        me: 'Tervetuloa Tornedalens Museoon',
+        sa: 'Bures boahtin Duortnosleagi museai'
+      },
+      MORE: {
+        sv: 'Mer',
+        en: 'More',
+        fi: 'Lisää',
+        me: 'Lisää',
+        sa: 'Mearra'
+      },
+      LOGIN: {
+        sv: 'Logga in',
+        en: 'Login',
+        fi: 'Kirjaudu sisään',
+        me: 'Kirjaudu sisään',
+        sa: 'Logge sisa'
+      },
+      SUBSCRIBE: {
+        sv: 'Bli medlem',
+        en: 'Subscribe',
+        fi: 'Liity jäseneksi',
+        me: 'Liity jäseneksi',
+        sa: 'Diŋgo'
+      },
+      ABOUT: {
+        sv: 'Om museet',
+        en: 'About the museum',
+        fi: 'Tietoa museosta',
+        me: 'Tietoa museosta',
+        sa: 'Musea birra'
+      },
+      MUSEUM_NAME: {
+        sv: 'Tornedalens Museum',
+        en: 'Tornedalens Museum',
+        fi: 'Tornedalens Museo',
+        me: 'Tornedalens Museo',
+        sa: 'Meänmuseo'
+      }
+    };
+
+    return translations[key]?.[currentLanguage] || key;
+  }
+
+  getFlagImage(): string {
+    const currentLanguage = this.languageService.getLanguage(); // Get the current language from the service
+    const flags: { [key: string]: string } = {
+      sv: 'assets/bilder/sweden.png',
+      me: 'assets/bilder/meankieli.png',
+      fi: 'assets/bilder/finland.png',
+      sa: 'assets/bilder/sami.png',
+      en: 'assets/bilder/uk.png',
+    };
+    return flags[currentLanguage] || 'assets/bilder/sweden.png';
+  }
+}

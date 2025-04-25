@@ -868,3 +868,44 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* Language Selector */
+.language-selector {
+  position: fixed;
+  top: 25px;
+  right: 230px;
+  display: inline-block;
+  margin-right: 10px;
+  z-index: 1000;
+}
+
+.flag-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.flag-button img {
+  width: 30px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.language-bar {
+  position: fixed;
+  top: 55px;
+  right: 234px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.language-bar .flag-button {
+  margin: 2px 0;
+}
