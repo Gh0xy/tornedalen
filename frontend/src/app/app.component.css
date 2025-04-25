@@ -56,6 +56,7 @@ body {
   .article-container {
     max-width: 1200px;
     /* Öka maxbredd för att ge mer plats åt innehållet i objekt av denna klass */
+    min-height: 800px;
     margin: 20px auto;
     /* Centrerar containern horisontellt */
     background-color: #fff;
