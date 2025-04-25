@@ -1,4 +1,25 @@
-<div class="article-text">
-  <h2>{{ getTranslation('QUIZ_TITLE') }}</h2>
-  <p>{{ getTranslation('QUIZ_INTRO') }}</p>
+<div class="quiz-container">
+  <h2>Testa din kunskap i vårt quiz!</h2>
+
+  <div *ngFor="let q of questions; let i = index" class="question-block">
+    <p><strong>{{ i + 1 }}. {{ q.question }}</strong></p>
+    <div *ngFor="let opt of q.options; let j = index">
+      <label>
+        <input
+          type="radio"
+          name="question{{ i }}"
+          [value]="j"
+          [(ngModel)]="questions[i].selected"
+        />
+        {{ opt }}
+      </label>
+    </div>
+  </div>
+
+  <button (click)="submitQuiz()" *ngIf="score === null">Submit</button>
+  <button (click)="resetQuiz()" *ngIf="score !== null">Try Again</button>
+
+  <div *ngIf="score !== null" class="score">
+    <h3>Your Score: {{ score }} / {{ questions.length }}</h3>
+  </div>
 </div>
