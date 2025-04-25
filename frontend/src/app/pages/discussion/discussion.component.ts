@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';  // Importera CommonModule
 @Component({
   selector: 'app-discussion',
   standalone: true,
-  imports: [RouterModule,FormsModule],  // Kontrollera att FormsModule är importerat
+  imports: [RouterModule,FormsModule,CommonModule],  // Kontrollera att FormsModule är importerat
   templateUrl: './discussion.component.html',
   styleUrls: ['./discussion.component.css']
 })

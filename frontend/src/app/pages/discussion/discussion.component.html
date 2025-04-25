@@ -1,11 +1,31 @@
 <div class="article-text">
-
   <h1 class="page-title">Inlägg</h1>
 
+
+  
+  <!-- Lista över alla sparade inlägg -->
+  <ul class="post-list" *ngIf="posts.length; else emptyMsg">
+    <li *ngFor="let p of posts">
+      <h4>{{ p.subject }}</h4>
+      <p class="content">{{ p.content }}</p>
+      <div class="meta">
+        <span class="author">{{ p.author }} </span>
+        <span class="date">{{ p.date | date:'yyyy-MM-dd HH:mm' }}</span>
+      </div>
+      <a [routerLink]="['/reply-to-post', p.id]" class="view-post-button">Visa inlägg</a>
+    </li>
+  </ul>
+
+
+  <!-- Visas om det inte finns några inlägg ännu -->
+  <ng-template #emptyMsg>
+    <p class="empty-hint">Inga inlägg ännu – bli den första att posta!</p>
+  </ng-template>
+
+  <!-- === Din befintliga modal fortsätter som tidigare === -->
+  <div class="modal" [class.show]="isModalOpen"> … </div>
+</div>
  
-
-
-
   <!-- Knappen som öppnar modalen -->
   <button class="elegant-button" (click)="openModal()">Skapa inlägg</button>
   
@@ -69,4 +89,3 @@
       </div>
     </div>
   </div>
-</div>

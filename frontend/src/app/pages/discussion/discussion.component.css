@@ -4,6 +4,46 @@
     justify-content: flex-start; /* För att hålla innehållet i toppen */
     align-items: center; /* Centrerar alla barnkomponenter horisontellt */
   }
+  
+/* CSS för att ge varje inlägg en rektangulär box med fast höjd och bredd */
+.post-list li {
+  border: 2px solid #ccc;  /* Grå ram runt varje inlägg */
+  border-radius: 8px;  /* Rundade hörn */
+  margin: 15px 0;  /* Avstånd mellan varje inlägg */
+  padding: 20px;  /* Utrymme mellan text och kant */
+  background-color: #f9f9f9;  /* Ljus bakgrund för varje inlägg */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Lätt skugga för att ge djup */
+  width: 800px;  /* Fast bredd för varje inlägg */
+  height: 150px;  /* Fast höjd för varje inlägg */
+  overflow: hidden;  /* Förhindrar att innehåll sträcker ut utanför boxen */
+  display: flex;
+  flex-direction: column;
+}
+
+.post-list li h4 {
+  font-size: 1.2em;  /* Lite större text för ämnet */
+  margin-bottom: 10px;  /* Avstånd under ämnet */
+  color: #333;  /* Mörkare färg för rubriken */
+  white-space: nowrap;  /* Gör så att rubriken inte bryts vid rad */
+  overflow: hidden;  /* Förhindrar att lång rubrik går utanför */
+  text-overflow: ellipsis;  /* Visar "..." om rubriken är för lång */
+}
+
+.post-list li .meta {
+  font-size: 0.9em;  /* Liten text för författare och datum */
+  color: #666;  /* Mörkgrå färg för meta-information */
+  margin-top: 10px;  /* Avstånd mellan innehållet och meta-informationen */
+}
+
+.post-list li .content {
+  margin-bottom: 15px;  /* Avstånd mellan innehållet och meta-informationen */
+  font-size: 1em;  /* Standard textstorlek för innehållet */
+  color: #444;  /* Mörkgrå färg för innehållet */
+  overflow-wrap: break-word;  /* Gör så att texten bryts om den går utanför */
+  word-wrap: break-word;  /* Gör så att långa ord bryts och inte går utanför */
+  flex-grow: 1;  /* Gör så att innehållet får växa för att fylla utrymmet */
+  overflow-y: auto;  /* Om innehållet är för långt, visa scrollbar */
+}
 
   .elegant-button {
     background-color: transparent;
