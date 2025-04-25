@@ -256,6 +256,7 @@ header h1 a {
   /* Rundade hörn */
   cursor: pointer;
   /* Pekaren ändras till en hand */
+  z-index: 1000;
 }
 
 /*CSS-stilar för objekt av klassen .login_button, dvs elementet som utgör en logga in-knapp på sidan. */
@@ -264,6 +265,7 @@ header h1 a {
   top: 10px; 
   right: 10px; 
   padding: 10px;
+  z-index: 1000;
 }
 
 /* CSS-stilar för dropdown-meny-knapp */
@@ -286,6 +288,7 @@ header h1 a {
   /* Rundade hörn */
   cursor: pointer;
   /* Pekaren ändras till en hand */
+  z-index: 1000;
 }
 /*CSS-stilar för objekt av klassen .subscribe_button, dvs elementet som utgör en bli medlem-knapp på sidan. */
 .subscribe_button {
@@ -293,6 +296,7 @@ header h1 a {
   top: 10px; 
   right: 120px; 
   padding: 10px; 
+  z-index: 1000;
 }
   
   /* Ett objekt av denna klass utgör en rubrik som ska mer seriös ut */
@@ -666,6 +670,7 @@ header h1 a {
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
   
   /* Form styling */
