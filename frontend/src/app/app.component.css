@@ -46,10 +46,14 @@ body {
 
   .main-wrapper {
     display: flex;
+    min-height: 100vh;
     justify-content: center;
     background-color: #fdfaf6; /* Ljus, varm bakgrundsfärg */
     position: relative;
     padding-top: 0px;
+    padding-left: 400px;
+    padding-right: 400px;
+    box-sizing: border-box;
   }
   
   /* Klass article-container hanterar artiklar på sidan. Här specificeras inställningar kring dess utseende och egenskaper */
@@ -80,14 +84,20 @@ body {
     background-size: contain;
     background-position: center;
     filter: grayscale(25%); /* Gör bilden svartvit */
+    height: 100%; /* Gör att dekorationerna sträcker sig över hela sidans höjd */
+    position: absolute; /* Gör att dekorationerna kan placeras relativt till föräldern (main-wrapper) */
+    top: 0;
+    bottom: 0;
   }
   
   .left-deco {
-    background-image: url('./pictures/samiskt_tema_hel.png');
+    background-image: url('../assets/bilder/samiskt_tema_hel.png');
+    left: 0;
   }
   
   .right-deco {
-    background-image: url('./pictures/samiskt_tema_hel.png');
+    background-image: url('../assets/bilder/samiskt_tema_hel.png');
+    right: 0;
   }
   
   /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
