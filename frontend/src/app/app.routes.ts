@@ -27,6 +27,11 @@ export const routes: Routes = [
       import('./pages/discussion/discussion.component').then((m) => m.DiscussionComponent),
   },
   {
+    path: 'reply-to-post',
+    loadComponent: () =>
+      import('./pages/reply-to-post/reply-to-post.component').then((m) => m.ReplyToPostComponent),
+  },
+  {
     path: 'exhibits',
     loadComponent: () =>
       import('./pages/exhibits/exhibits.component').then((m) => m.ExhibitsComponent),

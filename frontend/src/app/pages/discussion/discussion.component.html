@@ -10,7 +10,10 @@
         <span class="author">{{ p.author }} </span>
         <span class="date">{{ p.date | date:'yyyy-MM-dd HH:mm' }}</span>
       </div>
-      <a [routerLink]="['/reply-to-post', p.id]" class="view-post-button">Visa inlägg</a>
+
+      <div class="view-post-button"> 
+      <button [routerLink]="['/reply-to-post', p.id]">Läs eller svara på inlägg</button>
+    </div>
     </li>
   </ul>
 
