@@ -15,13 +15,18 @@ import { LanguageService } from '../../services/language.service';
 })
 export class DiscussionComponent implements OnInit {
   posts: Post[] = [];
-  isModalOpen = false;
-
+  
   // Form fields
   subject: string = '';
   author: string = '';
   email: string = '';
   content: string = '';
+  // paginering
+  currentPage: number = 1;
+  postsPerPage: number = 10;
+  totalPosts: number = 0;
+  //initiering av popup som false
+  isModalOpen = false;
 
   constructor(
     private router: Router,
@@ -35,6 +40,29 @@ export class DiscussionComponent implements OnInit {
       // Sortera inläggen i kronologisk ordning (nyaste först)
       this.posts = posts.sort((a, b) => b.date.getTime() - a.date.getTime());
     });
+    this.loadPosts();
+  }
+
+  loadPosts() {
+    // Hämta alla inlägg och sortera dem i kronologisk ordning
+    this.postService.getPosts().subscribe(posts => {
+      this.totalPosts = posts.length; // Sätt totalt antal inlägg
+      this.posts = posts
+        .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sortera nyaste först
+        .slice((this.currentPage - 1) * this.postsPerPage, this.currentPage * this.postsPerPage); // Paginate posts
+    });
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.loadPosts();
+  }
+
+  onPostsPerPageChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.postsPerPage = Number(target.value);  // Konvertera till ett tal
+    this.currentPage = 1;  // Återställ till första sidan
+    this.loadPosts(); // Ladda om inläggen med det nya antalet per sida
   }
 
   openModal() {

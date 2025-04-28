@@ -77,6 +77,19 @@
     </div>
   </div>
 
+  <div class="pagination-controls">
+    <label for="repliesPerPage">Visa:</label>
+    <select id="repliesPerPage" (change)="onRepliesPerPageChange($event)">
+      <option [value]="10">10</option>
+      <option [value]="25">25</option>
+      <option [value]="100">100</option>
+    </select>
+
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Föregående</button>
+    <span>Sida {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * repliesPerPage >= totalReplies">Nästa</button>
+  </div>
+
   <!-- Display a message if the post cannot be found -->
   <div *ngIf="!postToReply">
     <p>Det gick inte att hitta inlägget.</p>

@@ -28,6 +28,19 @@
     <p class="empty-hint">Inga inlägg ännu – bli den första att posta!</p>
   </ng-template>
 
+  <div class="pagination-controls">
+    <label for="postsPerPage">Visa:</label>
+    <select id="postsPerPage" (change)="onPostsPerPageChange($event)">
+      <option [value]="10">10</option>
+      <option [value]="25">25</option>
+      <option [value]="100">100</option>
+    </select>
+
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Föregående</button>
+    <span>Sida {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * postsPerPage >= totalPosts">Nästa</button>
+  </div>
+
   <!-- === Din befintliga modal fortsätter som tidigare === -->
   <div class="modal" [class.show]="isModalOpen"> … </div>
 </div>

@@ -11,7 +11,23 @@
     padding: 10px 0; /* Optional: Add padding for spacing */
   }
   
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
   
+  .pagination-controls button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+  }
 
 /* CSS för att ge varje inlägg en rektangulär box med fast höjd och bredd */
 .post-list li {

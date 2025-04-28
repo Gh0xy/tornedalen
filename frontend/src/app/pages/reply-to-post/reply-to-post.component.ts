@@ -15,7 +15,6 @@ import { LanguageService } from '../../services/language.service';
   styleUrls: ['./reply-to-post.component.css']
 })
 export class ReplyToPostComponent implements OnInit {
-
   postId: string | null = null;
   postToReply: Post | undefined;  // Det inlägg som vi ska svara på
   replyContent: string = '';  // Innehållet för svaret
@@ -26,6 +25,11 @@ export class ReplyToPostComponent implements OnInit {
   author: string = '';
   email: string = '';
   content: string = '';
+
+  // Paginering
+  currentPage: number = 1;
+  repliesPerPage: number = 5;
+  totalReplies: number = 0;
 
   constructor(
     private route: ActivatedRoute, 
@@ -40,12 +44,48 @@ export class ReplyToPostComponent implements OnInit {
     
     if (this.postId) {
       // Fetch the post with the given id from your service or local storage
-      this.postService.getPostById(this.postId).subscribe(post => {
-        this.postToReply = post;
-      }, error => {
-        console.error('Post not found', error);
-      });
+      this.postService.getPostById(this.postId).subscribe(
+        post => {
+          if (post) {  // Kontrollera att post inte är undefined
+            this.postToReply = post;
+            this.totalReplies = post.replies ? post.replies.length : 0;
+            this.loadReplies(); // Ladda kommentarer vid initialisering
+          } else {
+            console.error('Post not found');
+          }
+        },
+        error => {
+          console.error('Error fetching post:', error);
+        }
+      );
+    } else {
+      console.error('No post ID found');
     }
+  }
+
+  // Ladda om svaren (kommentarerna) för den aktuella sidan
+  loadReplies() {
+    if (this.postToReply) {
+      const startIndex = (this.currentPage - 1) * this.repliesPerPage;
+      const endIndex = startIndex + this.repliesPerPage;
+      this.postToReply.replies = this.postToReply.replies || [];
+      this.postToReply.replies = this.postToReply.replies
+        .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sortera kommentarer nyaste först
+        .slice(startIndex, endIndex); // Visa endast kommentarer för den aktuella sidan
+    }
+  }
+
+  // Hantera sidbyte
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.loadReplies();
+  }
+
+  onRepliesPerPageChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.repliesPerPage = Number(target.value);  // Konvertera till ett tal
+    this.currentPage = 1;  // Återställ till första sidan
+    this.loadReplies(); // Ladda om inläggen med det nya antalet per sida
   }
 
   submitReply() {
@@ -63,6 +103,9 @@ export class ReplyToPostComponent implements OnInit {
       // Add the reply to the current post's replies array
       this.postToReply.replies = this.postToReply.replies || [];
       this.postToReply.replies.unshift(replyPost); // Add new reply at the beginning
+
+      this.totalReplies = this.postToReply.replies.length;
+      this.loadReplies(); // Uppdatera kommentarerna efter nytt svar
   
       // Save the updated post to the service (or localStorage)
       this.postService.addReplyToPost(this.postId, replyPost).subscribe(post => {
@@ -77,5 +120,5 @@ resetForm() {
         this.author = '';
         this.email = '';
         this.content = '';
-      }
+      }  
 }
