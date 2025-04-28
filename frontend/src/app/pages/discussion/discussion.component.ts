@@ -52,7 +52,7 @@ export class DiscussionComponent implements OnInit {
     }
 
     const newPost: Post = {
-      id: Date.now(),
+      id: new Date().toISOString(), // Use ISO string for a unique, string-based ID
       subject: this.subject,
       author: this.author,
       email: this.email,

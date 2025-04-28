@@ -1,6 +1,11 @@
 <div class="article-text">
+  <div class="page-header">
  <h1 class="page-title">{{ getTranslation('DISCUSSION_TITLE') }}</h1>
-
+  <!-- Button to open the modal -->
+  <button class="elegant-button" (click)="openModal()">{{ getTranslation('CREATE_POST') }}</button>
+</div>
+  
+  <div class="post-list-container">
   <!-- Lista över alla sparade inlägg -->
   <ul class="post-list" *ngIf="posts.length; else emptyMsg">
     <li *ngFor="let p of posts">
@@ -12,11 +17,11 @@
       </div>
 
       <div class="view-post-button"> 
-      <button [routerLink]="['/reply-to-post', p.id]">Läs eller svara på inlägg</button>
+      <button [routerLink]="['/reply-to-post', p.id]">Gå till inlägg</button>
     </div>
     </li>
   </ul>
-
+</div>
 
   <!-- Visas om det inte finns några inlägg ännu -->
   <ng-template #emptyMsg>
@@ -27,8 +32,6 @@
   <div class="modal" [class.show]="isModalOpen"> … </div>
 </div>
  
-  <!-- Button to open the modal -->
-  <button class="elegant-button" (click)="openModal()">{{ getTranslation('CREATE_POST') }}</button>
 
   <!-- Modal -->
   <div class="modal" [class.show]="isModalOpen">

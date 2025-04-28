@@ -4,7 +4,15 @@
     justify-content: flex-start; /* För att hålla innehållet i toppen */
     align-items: center; /* Centrerar alla barnkomponenter horisontellt */
   }
+
+  .article-text {
+    width: 100%; /* Ensures it takes full width inside article container */
+    margin-right: 0; /* Remove the margin if necessary */
+    padding: 10px 0; /* Optional: Add padding for spacing */
+  }
   
+  
+
 /* CSS för att ge varje inlägg en rektangulär box med fast höjd och bredd */
 .post-list li {
   border: 2px solid #ccc;  /* Grå ram runt varje inlägg */
@@ -13,8 +21,8 @@
   padding: 20px;  /* Utrymme mellan text och kant */
   background-color: #f9f9f9;  /* Ljus bakgrund för varje inlägg */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Lätt skugga för att ge djup */
-  width: 800px;  /* Fast bredd för varje inlägg */
-  height: 150px;  /* Fast höjd för varje inlägg */
+  width: 90%;  /* Fast bredd för varje inlägg */
+  min-height: 150px;  /* Fast höjd för varje inlägg */
   overflow: hidden;  /* Förhindrar att innehåll sträcker ut utanför boxen */
   display: flex;
   flex-direction: column;
@@ -66,14 +74,50 @@
     border-color: #666;
     color: #1a1a1a;
   }
+
+  .view-post-button {
+    text-align: center; /* Centers the button horizontally */
+    margin-top: 10px; /* Space between content and button */
+  }
   
+  .view-post-button button {
+    background-color: #4CAF50; /* Elegant green background */
+    color: white; /* White text */
+    border: 2px solid #4CAF50; /* Green border to match the background */
+    padding: 8px 16px; /* Smaller size padding */
+    font-size: 14px; /* Small font size */
+    font-family: 'Arial', sans-serif; /* Clean font style */
+    border-radius: 25px; /* Rounded corners for a more refined look */
+    cursor: pointer; /* Shows pointer when hovering */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+  }
+  
+  .view-post-button button:hover {
+    background-color: #45a049; /* Slightly darker green when hovered */
+    transform: scale(1.1); /* Slightly enlarge button on hover */
+  }
+  
+  .view-post-button button:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 10px rgba(72, 180, 72, 0.8); /* Add a soft green glow when focused */
+  }
+  
+  .page-header {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center both title and button horizontally */
+    align-items: center; /* Vertically align items */
+    flex-direction: column; /* Stack the items vertically */
+    text-align: center; /* Center text inside the container */
+    margin: 0 auto; /* Center the container itself horizontally */
+  }
+
   .page-title {
     text-align: center;
     font-size: 2.8rem;
     font-family: 'Georgia', serif;
     color: #2e2e2e;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     letter-spacing: 0.5px;
     position: relative;
   }

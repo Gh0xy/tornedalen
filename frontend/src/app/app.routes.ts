@@ -27,7 +27,7 @@ export const routes: Routes = [
       import('./pages/discussion/discussion.component').then((m) => m.DiscussionComponent),
   },
   {
-    path: 'reply-to-post',
+    path: 'reply-to-post/:id',
     loadComponent: () =>
       import('./pages/reply-to-post/reply-to-post.component').then((m) => m.ReplyToPostComponent),
   },

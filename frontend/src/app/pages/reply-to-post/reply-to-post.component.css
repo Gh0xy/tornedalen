@@ -1,0 +1,178 @@
+/* Huvud container för inlägg och svar */
+/* Post container */
+.post-container {
+    background-color: #fafafa; /* Jätte jätte ljusgrå */
+    border-radius: 1px; /* Liten rundning */
+    box-shadow: none; /* Ingen skugga */
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Kant runt hela post-container */
+.post-container::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Mycket tunn kant */
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background-color: rgba(0, 0, 0, 0.03); /* Superlätt mörk ton för tunn kant */
+    border-radius: 1px;
+    z-index: -1;
+}
+
+/* Själva posten */
+.go-to-post {
+    background-color: #ffffff; /* Vitt inuti posten */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Tunn kant */
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 1px;
+}
+
+/* Ta bort extra mörk kant runt posten */
+.go-to-post::before {
+    display: none;
+}
+
+.go-to-post h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.go-to-post p {
+    font-size: 1.2rem;         /* Lite större text */
+    line-height: 1.15;          /* Mer radavstånd, luftigare */
+    color: #555;
+    margin-top: 1.2rem;        /* Extra utrymme ovanför */
+    margin-bottom: 1.2rem;     /* Extra utrymme nedanför */
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.meta .author,
+.meta .date {
+    margin-right: 10px;
+}
+
+.author-email-row {
+    display: flex;
+    gap: 1rem; /* Mellanrum mellan författare och e-post */
+    margin-bottom: 1rem;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Båda input-fälten delar plats lika */
+  }
+  
+  .textarea-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  /* Extra om du vill göra textarea lite större och trevligare */
+  .textarea-content {
+    min-height: 50px;
+    resize: vertical;
+  }
+
+/* Formulär i samma container */
+.reply-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #ffffff; /* Vit bakgrund för formuläret */
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reply-form h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #4477ee;
+    box-shadow: 0 0 8px rgba(68, 119, 238, 0.2);
+}
+
+button[type="submit"] {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #4477ee;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3355cc;
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* Svar-lista */
+.replies-list {
+    margin-top: 0rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Replies container */
+.replies-list li {
+    background-color: #ffffff; /* Vitt för varje svar */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Tunn tunn tunn tunn tunn kant */
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 1px;
+    position: relative;
+}
+
+/* Ta bort mörk kant runt replies också */
+.replies-list li::before {
+    display: none;
+}
+
+.replies-list p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.replies-list h3 {
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #777;
+}
