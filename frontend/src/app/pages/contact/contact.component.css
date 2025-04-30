@@ -11,6 +11,21 @@ body {
     min-height: 100vh;
     /* Full height for the body */
   }
+
+   /* Article container, centering content with padding */
+.article-container {
+  max-width: 1200px;
+  min-height: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
   
   /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
   /* Media query för mindre skärmar */

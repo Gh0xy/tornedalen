@@ -1,4 +1,38 @@
 <div class="article-text">
-  <h2>Utställningar</h2>
-  <p>Ta del av våra aktuella utställningar.</p>
+  <h2>{{ getTranslation('EXHIBITS_TITLE') }}</h2>
+  <p>{{ getTranslation('EXHIBITS_INTRO') }}</p>
+  <p>{{ getTranslation('EXHIBITS_NO_CURRENT') }}</p>
+</div>
+
+<div class="video-box" *ngFor="let video of videos; let i = index">
+  <div class="video-content">
+    <!-- Video + Description -->
+    <div class="video-area">
+      <iframe
+        width="420"
+        height="236"
+        [src]="video.url | safeUrl"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+
+      <div class="description-box">
+        <p>{{ getVideoDescription(video) }}</p>
+      </div>
+    </div>
+
+    <!-- Stars & Rating below the description -->
+    <div class="stars-box">
+      <div class="stars">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          (click)="setRating(i, star)"
+          [class.filled]="star <= video.rating"
+          class="star">
+          ★
+        </span>
+      </div>
+      <p>{{ getTranslation('RATING') }}: {{ video.rating }}/5</p>
+    </div>
+  </div>
 </div>

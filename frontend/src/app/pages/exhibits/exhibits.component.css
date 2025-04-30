@@ -12,6 +12,7 @@ body {
     /* Full height for the body */
 }
 
+
 /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
 /* Media query för mindre skärmar */
 @media (max-width: 768px) {
@@ -177,54 +178,6 @@ h1 {
     padding: 10px; 
 }
 
-/* Ett objekt av denna klass utgör rubrik till en artikel om TV-serier; ska ha en lättsam och underhållande stil */
-.fun-heading {
-    font-family: 'Comic Sans MS', 'Cursive', sans-serif;
-    /* Fun, playful font */
-    color: #e43c12;
-    /* Bright orange color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    /* Adds a slight shadow for depth */
-    font-size: 36px;
-    /* Larger text size */
-    background: linear-gradient(45deg, #f39c12, #f03405);
-    /* Gradient background for more color fun */
-    -webkit-background-clip: text;
-    /* Makes gradient apply to text */
-    background-clip: text;
-    /* Standard property for other browsers */
-    color: transparent;
-    /* Ensures text color becomes the gradient */
-    padding: 0px 0;
-    text-align: center;
-    letter-spacing: 2px;
-    /* Adds some space between the letters */
-}
-
-/* Ett objekt av denna klass utgör en rubrik som ska mer seriös ut */
-.serious-heading {
-    /* Fun, playful font */
-    color: #195805;
-    /* Bright orange color */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    /* Adds a slight shadow for depth */
-    font-size: 36px;
-    /* Larger text size */
-    background: linear-gradient(45deg, #70e007, #112501);
-    /* Gradient background for more color fun */
-    -webkit-background-clip: text;
-    /* Makes gradient apply to text */
-    background-clip: text;
-    /* Standard property for other browsers */
-    color: transparent;
-    /* Ensures text color becomes the gradient */
-    padding: 0px 0;
-    margin-bottom: 10px;
-    text-align: center;
-    letter-spacing: 2px;
-    /* Adds some space between the letters */
-}
-
 /* Styling för alla länkar */
 a {
     text-decoration: none;
@@ -336,98 +289,6 @@ main {
     /* Tillått innehåll inom main-element att fylla ut sidan vertikalt (kräver att föräldraelement body använder flexbox-layout genom t.ex. 'display: flex'. */
 }
 
-/* #topic-articles är ett ID-selector som riktar sig mot ett element med id="topic-articles". I det här fallet är det ett section-element i HTML-dokumentet som innehåller artikel-thumbnails*/
-#topic-articles {
-    margin: 0px auto;
-    /* Center the container */
-    flex: 1;
-    /* flex: 1 säger att elementet ska ta upp så mycket utrymme som möjligt inom sin förälder, i förhållande till andra flexibla element. Ska här säkerställa att footern fastnar på botten av sidan*/
-    display: flex;
-    /* Aktivera flexbok; definierar att ett element och dess barn ska hanteras med flexbox-layouten. */
-    flex-wrap: wrap;
-    /* Allow items to wrap to the next line */
-    justify-content: center;
-    /* Center the items */
-    max-width: 1200px;
-    /* Set a maximum width for the container */
-}
-
-/* Använder ett existerande HTML-element (article) och applicerar CSS-stilar på alla av dessa article-element som ligger inom sektionen med id="topic-articles" (dvs där artikel-thumbnails visas).*/
-#topic-articles article {
-    border: 1px solid #ccc;
-    /* Add a border around each article */
-    border-radius: 0px;
-    /* Rounded corners for the articles */
-    padding: 25px;
-    /* Add padding inside the article */
-    margin: 25px;
-    /* Add margin around each article */
-    background-color: #f9f9f9;
-    /* Light background color for articles */
-    flex: 1 0 30%;
-    /* Allow articles to grow and shrink, with a base size of 30% */
-    max-width: 20%;
-    /* Limit the width to 30% of the container */
-    min-height: 200px;
-    /* Set a minimum height for consistency */
-    box-sizing: border-box;
-    /* Include padding and border in element's total width */
-}
-
-/* Specificerar inställningar för <h2>-element i sektionen för artikel-thumbnails */
-#topic-articles h2 {
-    text-align: center;
-    /* Center the heading */
-    font-size: 28px;
-    /* Adjust font size as needed */
-    margin-bottom: 25px;
-    /* Space below the heading */
-    width: 100%;
-    /* Ensures it takes full width */
-}
-
-/* Specificerar inställningar för <img>-element i sektionen för artikel-thumbnails */
-#topic-articles img {
-    max-width: 100%;
-    /* Make images responsive */
-    height: auto;
-    /* Maintain aspect ratio of images */
-}
-
-/* Specificerar inställningar för <h3>-element i sektionen för artikel-thumbnails */
-#topic-articles h3 {
-    font-size: 1em;
-    /* Font size for article titles */
-    margin-top: 10px;
-    /* Space above titles */
-}
-
-/* Specificerar inställningar för paragrafer i sektionen för artikel-thumbnails */
-#topic-articles p {
-    font-size: 0.9em;
-    /* Font size for publication date */
-    color: #666;
-    /* Grey color for the date */
-}
-
-/* Specificerar inställningar för länkar i sektionen för artikel-thumbnails */
-#topic-articles a {
-    display: inline-block;
-    /* Make links block elements */
-    margin-top: 10px;
-    /* Space above links */
-    color: rgb(0, 0, 0);
-    /* Link color */
-    text-decoration: none;
-    /* Remove underline from links */
-}
-
-/* Specificerar hur länkar i sektionen artikel-thumbnails visas när muspekaren nuddar dem */
-#topic-articles a:hover {
-    text-decoration: underline;
-    /* Underline on hover */
-}
-
 /* Klass article-container hanterar artiklar på sidan. Här specificeras inställningar kring dess utseende och egenskaper */
 .article-container {
     max-width: 1200px;
@@ -481,147 +342,9 @@ main {
     /* Lägg till utrymme mellan artikeltext och lista */
 }
 
-/* Här specificeras utseende och egenskaper för element av klassen accordion*/
-.accordion {
-    max-width: 1200px;
-    /* Öka maxbredd för att ge mer plats åt innehållet i objekt av denna klass */
-    margin: 20px auto;
-    /* Centrerar containern horisontellt */
-    background-color: #ffffff;
-    /* Vit bakgrund för artikeln */
-    border-radius: 5px;
-    /* Rundade hörn */
-    padding: 0px;
-    /* Padding inuti containern för önskat utrymme */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Lätt skugga för att ge sken av djup på sidan */
-    transition: background-color 0.3s ease;
-    /* Gör färgändringarna smidiga */
-}
-
-/* Ändra CSS-stilar för <li>-element inom .accordion-element */
-.accordion ul li {
-    margin-bottom: 0px;
-    /* Ökar avståndet mellan varje li-element */
-    padding: 5px;
-    /* Justerar padding för att ge mer utrymme inuti li-elementet */
-    text-align: center;
-    /* Centrera texten i li-elementen */
-    list-style-position: inside;
-    /* Flytta punkterna inuti listan */
-    font-size: 14px;
-    /* Justera textstorlek efter behov */
-}
-
-/* CSS-stilar för <summary>-element i accordion. <summary> är titeln eller rubriken som användaren kan klicka på för att visa eller dölja innehållet inom <details>, som är en expanderbar container i accordion.*/
-summary {
-    width: 100%;
-    /* Gör summary full bredd */
-    text-align: center;
-    /* Centrera texten horisontellt */
-    padding: 10px;
-    /* Justera padding för att ge mer höjd */
-    background-color: #ffffffa1 !important;
-    /* Tvingar att använda denna färg */
-    color: #000000;
-    /* Tvingar svart text */
-    border: 1px solid #000;
-    /* Svart kant */
-    border-radius: 5px;
-    /* Rundade hörn */
-    cursor: pointer;
-    /* Muspekare blir en pekare */
-    outline: none;
-    /* Tar bort den standardiserade outline vid fokus */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smidig färgändring */
-}
-
-/* Ändra bakgrund och textfärg vid hover över rubiker (<summary>) till <details>-element (de expanderbara alternativen i accordion-elementet som innehåller spartips)*/
-summary:hover {
-    background-color: #000000 !important;
-    /* Mörkare blå vid hover */
-    color: #ffffff;
-    /* Vit text vid hover */
-}
-
-/* CSS-stilar för <details>-element i accordion. Aktivera stilar när elementet är öppet/expanderat */
-details[open] summary {
-    background-color: #000000 !important;
-    /* Färg för den aktiva knappen */
-    /* Gradient background for more color fun */
-    color: #ffffff;
-    /* Vit text för den aktiva knappen */
-}
-
-/*CSS-stilar för summary-element, dvs titlarna på de expanderbara alternativen i accordion-elementet i artikeln Spartips*/
-summary {
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-/*Ställer in bakgrundsfärgen när man expanderar <details>-element i accordion-elementet i filen Spartips.html*/
-details[open] summary {
-    background-color: #ddd;
-}
-
 ul {
     margin-left: 20px;
 }
-
-.arena-list {
-    flex: 1;
-    /* Gör att arenalistan tar mindre plats men är fortfarande bred */
-    max-width: 400px;
-    /* Maxbredd för arenalistan */
-}
-
-/* Klass som används för artikel-thumbnails, styr utseende och layout av artikel-thumbnails. */
-.thumbnail {
-
-    height: auto;
-    /* detta behåller proportionerna */
-    max-width: 100%;
-    /* så att bilden inte blir större än sin behållare */
-}
-
-/* Klass som används för resultattabell i en artikel. */
-.match-result {
-    max-width: 400px;
-    /* Begränsa bredden på tabellen */
-    flex-shrink: 0;
-    /* Hindra tabellen från att krympa */
-}
-
-/* Specificerar CSS-stilar för det inbyggda elementet <table>. */
-table {
-    width: 100%;
-    /* Gör tabellen fullbredd */
-    border-collapse: collapse;
-    /* Ta bort mellanrum mellan cellerna */
-}
-
-/* Specificerar CSS-stilar för det inbyggda elementet <table>. */
-th,
-td {
-    border: 1px solid #ccc;
-    /* Lägger till en grå kant runt cellerna */
-    padding: 10px;
-    /* Lägger till utrymme i cellerna */
-    text-align: center;
-    /* Centrerar texten */
-}
-
-/* Specificerar CSS-stilar för tabellrubriker. */
-th {
-    background-color: #f2f2f2;
-    /* Ljus bakgrund för rubriker */
-}
-
 /* Login container styling */
 .form-container {
     max-width: 400px;
@@ -835,3 +558,60 @@ footer a {
     color: white;
     /* Vit färg för länken */
 }
+.video-box {
+    border: 1px solid #ccc; /* Lägger till en tunn grå ram runt videoboxen */
+    padding: 20px; /* Ger ett mellanrum på 20px inuti rutan för att separera innehållet från kanterna */
+    margin-bottom: 30px; /* Lägger till ett avstånd på 30px mellan denna box och nästa element nedanför */
+    border-radius: 8px; /* Rundar hörnen på videoboxen med 8px */
+    background-color: #f9f9f9; /* Sätter bakgrundsfärgen till ljusgrå */
+  }
+  
+  .video-content {
+    display: flex; /* Gör att innehållet blir flexibelt, så att det kan ordnas horisontellt eller vertikalt */
+    flex-direction: column; /* Arrangerar innehållet i en kolumn (vertikalt) */
+    align-items: flex-start; /* Justerar innehållet så att det är vänsterjusterat */
+    gap: 20px; /* Lägger ett mellanrum på 20px mellan varje element i kolumnen */
+  }
+  
+  .video-area {
+    display: flex; /* Gör det flexibelt så att innehållet kan ordnas dynamiskt */
+    flex-direction: column; /* Arrangerar innehållet i en kolumn */
+    align-items: flex-start; /* Justerar innehållet så att det är vänsterjusterat */
+    gap: 10px; /* Lägger till ett mellanrum på 10px mellan varje element */
+  }
+  
+  .description-box {
+    background-color: #f3f3f3; /* Sätter bakgrundsfärgen till en ljusgrå nyans */
+    padding: 10px; /* Lägger till ett mellanrum på 10px runt texten inuti boxen */
+    border-radius: 4px; /* Rundar hörnen på beskrivningsboxen med 4px */
+    max-width: 420px; /* Sätter ett maxbreddvärde på 420px för beskrivningsboxen */
+    font-size: 15px; /* Ställer in textstorleken på 15px för beskrivningstexten */
+  }
+  
+  .stars-box {
+    display: flex; /* Gör så att innehållet i denna box ordnas flexibelt */
+    flex-direction: column; /* Arrangerar stjärnorna vertikalt */
+    align-items: flex-start; /* Justerar stjärnorna så att de är vänsterjusterade */
+    padding: 10px; /* Lägger till ett mellanrum på 10px runt stjärnorna */
+    margin-top: 10px; /* Lägger till ett avstånd på 10px ovanför stjärnorna */
+  }
+  
+  .stars {
+    font-size: 2rem; /* Sätter fontstorleken på stjärnorna till 2 rem, vilket gör stjärnorna större */
+    color: lightgray; /* Sätter färgen på stjärnorna till ljusgrå när de inte är fyllda */
+    cursor: pointer; /* Gör stjärnorna klickbara (ändrar muspekaren till en hand när man hovrar över den) */
+  }
+  
+  .stars .filled {
+    color: gold; /* När en stjärna är fylld (dvs. användaren har betygsatt den), ändras färgen till guld */
+  }
+  
+  .star {
+    cursor: pointer; /* Gör att muspekaren ändras till en hand när man hovrar över stjärnorna */
+    margin-right: 5px; /* Lägger ett mellanrum på 5px mellan varje stjärna */
+  }
+  
+  iframe {
+    border-radius: 8px; /* Rundar hörnen på iframen (videon) med 8px */
+  }
+  
