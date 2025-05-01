@@ -1,50 +1,45 @@
 <div class="article-text">
   <div class="page-header">
- <h1 class="page-title">{{ getTranslation('DISCUSSION_TITLE') }}</h1>
-  <!-- Button to open the modal -->
-  <button class="elegant-button" (click)="openModal()">{{ getTranslation('CREATE_POST') }}</button>
-</div>
+    <h1 class="page-title">{{ translations['DISCUSSION_TITLE'] }}</h1>
+    <!-- Button to open the modal -->
+    <button class="elegant-button" (click)="openModal()">{{ translations['CREATE_POST'] }}</button>
+  </div>
   
   <div class="post-list-container">
-  <!-- Lista över alla sparade inlägg -->
-  <ul class="post-list" *ngIf="posts.length; else emptyMsg">
-    <li *ngFor="let p of posts">
-      <h4>{{ p.subject }}</h4>
-      <p class="content">{{ p.content }}</p>
-      <div class="meta">
-        <span class="author">{{ p.author }} </span>
-        <span class="date">{{ p.date | date:'yyyy-MM-dd HH:mm' }}</span>
-      </div>
+    <!-- List of all saved posts -->
+    <ul class="post-list" *ngIf="posts.length > 0; else emptyMsg">
+      <li *ngFor="let p of posts">
+        <h4>{{ p.subject }}</h4>
+        <p class="content">{{ p.content }}</p>
+        <div class="meta">
+          <span class="author">{{ p.author }}</span>
+          <span class="date">{{ p.date | date:'yyyy-MM-dd HH:mm' }}</span>
+        </div>
 
-      <div class="view-post-button"> 
-      <button [routerLink]="['/reply-to-post', p.id]">Gå till inlägg</button>
-    </div>
-    </li>
-  </ul>
-</div>
+        <div class="view-post-button"> 
+          <button [routerLink]="['/reply-to-post', p.id]">{{ translations['SHOW'] }}</button>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-  <!-- Visas om det inte finns några inlägg ännu -->
+  <!-- Displayed if there are no posts yet -->
   <ng-template #emptyMsg>
-    <p class="empty-hint">Inga inlägg ännu – bli den första att posta!</p>
+    <p class="empty-hint">{{ translations['EMPTY_MSG'] }}</p>
   </ng-template>
 
   <div class="pagination-controls">
-    <label for="postsPerPage">Visa:</label>
+    <label for="postsPerPage">{{ translations['SHOW'] }}:</label>
     <select id="postsPerPage" (change)="onPostsPerPageChange($event)">
       <option [value]="10">10</option>
       <option [value]="25">25</option>
       <option [value]="100">100</option>
     </select>
 
-    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Föregående</button>
-    <span>Sida {{ currentPage }}</span>
-    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * postsPerPage >= totalPosts">Nästa</button>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">{{ translations['PREVIOUS'] }}</button>
+    <span>{{ translations['PAGE'] }} {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * postsPerPage >= totalPosts">{{ translations['NEXT'] }}</button>
   </div>
-
-  <!-- === Din befintliga modal fortsätter som tidigare === -->
-  <div class="modal" [class.show]="isModalOpen"> … </div>
-</div>
- 
 
   <!-- Modal -->
   <div class="modal" [class.show]="isModalOpen">
@@ -53,53 +48,54 @@
 
       <!-- Form -->
       <div class="discussion-form">
-        <h3>{{ getTranslation('CREATE_POST') }}</h3>
+        <h3>{{ translations['CREATE_POST'] }}</h3>
         <form (ngSubmit)="createPost()">
-          <label for="subject">{{ getTranslation('SUBJECT') }}</label>
+          <label for="subject">{{ translations['SUBJECT'] }}</label>
           <input
             type="text"
             id="subject"
             [(ngModel)]="subject"
             name="subject"
             required
-            placeholder="{{ getTranslation('SUBJECT') }}"
+            placeholder="{{ translations['SUBJECT'] }}"
             class="form-input"
           />
 
-          <label for="author">{{ getTranslation('AUTHOR') }}</label>
+          <label for="author">{{ translations['AUTHOR'] }}</label>
           <input
             type="text"
             id="author"
             [(ngModel)]="author"
             name="author"
             required
-            placeholder="{{ getTranslation('AUTHOR') }}"
+            placeholder="{{ translations['AUTHOR'] }}"
             class="form-input"
           />
 
-          <label for="email">{{ getTranslation('EMAIL') }}</label>
+          <label for="email">{{ translations['EMAIL'] }}</label>
           <input
             type="email"
             id="email"
             [(ngModel)]="email"
             name="email"
             required
-            placeholder="{{ getTranslation('EMAIL') }}"
+            placeholder="{{ translations['EMAIL'] }}"
             class="form-input"
           />
 
-          <label for="content">{{ getTranslation('CONTENT') }}</label>
+          <label for="content">{{ translations['CONTENT'] }}</label>
           <textarea
             id="content"
             [(ngModel)]="content"
             name="content"
             required
-            placeholder="{{ getTranslation('CONTENT') }}"
+            placeholder="{{ translations['CONTENT'] }}"
             class="form-input"
           ></textarea>
 
-          <button type="submit">{{ getTranslation('SUBMIT_POST') }}</button>
+          <button type="submit">{{ translations['SUBMIT_POST'] }}</button>
         </form>
       </div>
     </div>
   </div>
+</div>

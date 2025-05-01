@@ -1,70 +1,65 @@
 <div class="reply-to-post-container">
-  <!-- Check if postToReply is defined and if replies exist -->
   <div *ngIf="postToReply">
-    <!-- Display the post we are replying to -->
     <div class="post-container">
       <div class="go-to-post">
         <h2>{{ postToReply.subject }}</h2>
         <p>{{ postToReply.content }}</p>
         <div class="meta">
-          <span class="author">{{ postToReply.author }} </span>
+          <span class="author">{{ postToReply.author }}</span>&nbsp;
           <span class="date">{{ postToReply.date | date:'yyyy-MM-dd HH:mm' }}</span>
         </div>
       </div>
 
       <div class="replies-list">
-        <h3>Lämna en kommentar</h3>
+        <h3>{{ getTranslation('LEAVE_COMMENT') }}</h3>
       </div>
 
-      <!-- Form for replying directly below the post -->
-<div class="reply-form">
-  <form (ngSubmit)="submitReply()">
+      <div class="reply-form">
+        <form (ngSubmit)="submitReply()">
+          <div class="author-email-row">
+            <div class="input-group">
+              <input
+                type="text"
+                id="author"
+                [(ngModel)]="author"
+                name="author"
+                required
+                [placeholder]="getTranslation('AUTHOR')"
+                class="form-input"
+              />
+            </div>
 
-    <div class="author-email-row">
-      <div class="input-group">
-        <input
-          type="text"
-          id="author"
-          [(ngModel)]="author"
-          name="author"
-          required
-          placeholder="Författare"
-          class="form-input"
-        />
+            <div class="input-group">
+              <input
+                type="email"
+                id="email"
+                [(ngModel)]="email"
+                name="email"
+                required
+                [placeholder]="getTranslation('EMAIL')"
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <div class="textarea-group">
+            <textarea
+              [(ngModel)]="replyContent"
+              name="replyContent"
+              id="replyContent"
+              required
+              [placeholder]="getTranslation('WRITE_REPLY')"
+              class="form-input textarea-content"
+            ></textarea>
+          </div>
+
+          <button type="submit">{{ getTranslation('SUBMIT_REPLY') }}</button>
+        </form>
       </div>
 
-      <div class="input-group">
-        <input
-          type="email"
-          id="email"
-          [(ngModel)]="email"
-          name="email"
-          required
-          placeholder="E-post"
-          class="form-input"
-        />
-      </div>
-    </div>
-
-    <div class="textarea-group">
-      <textarea
-        [(ngModel)]="replyContent"
-        name="replyContent"
-        id="replyContent"
-        required
-        placeholder="Skriv ditt svar här..."
-        class="form-input textarea-content"
-      ></textarea>
-    </div>
-
-    <button type="submit">Skicka svar</button>
-  </form>
-</div>
-
-      <!-- Display replies if they exist -->
       <div class="replies-list">
         <div *ngIf="postToReply.replies && postToReply.replies.length > 0">
-          <h3>Kommentarsfält</h3>
+          <h3>{{ getTranslation('COMMENTS_SECTION') }}</h3>
           <ul>
             <li *ngFor="let reply of postToReply.replies">
               <p>{{ reply.author }}</p>
@@ -78,20 +73,23 @@
   </div>
 
   <div class="pagination-controls">
-    <label for="repliesPerPage">Visa:</label>
+    <label for="repliesPerPage">{{ getTranslation('SHOW') }}:</label>
     <select id="repliesPerPage" (change)="onRepliesPerPageChange($event)">
       <option [value]="10">10</option>
       <option [value]="25">25</option>
       <option [value]="100">100</option>
     </select>
 
-    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Föregående</button>
-    <span>Sida {{ currentPage }}</span>
-    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * repliesPerPage >= totalReplies">Nästa</button>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+      {{ getTranslation('PREVIOUS') }}
+    </button>
+    <span>{{ getTranslation('PAGE') }} {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * repliesPerPage >= totalReplies">
+      {{ getTranslation('NEXT') }}
+    </button>
   </div>
 
-  <!-- Display a message if the post cannot be found -->
   <div *ngIf="!postToReply">
-    <p>Det gick inte att hitta inlägget.</p>
+    <p>{{ getTranslation('POST_NOT_FOUND') }}</p>
   </div>
 </div>
