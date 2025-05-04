@@ -1,11 +1,20 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router, RouterModule } from '@angular/router';
-import { PostService } from '../../services/post.service';
-import { Post } from '../../models/post.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { DiscussionService, DiskussionInlägg } from '../../services/discussion.service';
+
+interface DiskussionMedSvar extends DiskussionInlägg {
+  replies?: DiskussionMedSvar[];
+  date?: Date;
+
+  // Properties for template compatibility
+  subject?: string;
+  author?: string;
+  content?: string;
+}
 
 @Component({
   selector: 'app-reply-to-post',
@@ -14,11 +23,11 @@ import { LanguageService } from '../../services/language.service';
   imports: [RouterModule, FormsModule, CommonModule],
   styleUrls: ['./reply-to-post.component.css']
 })
+
 export class ReplyToPostComponent implements OnInit {
   postId: string | null = null;
-  postToReply: Post | undefined;
+  postToReply: DiskussionMedSvar | undefined;
   replyContent: string = '';
-  posts: Post[] = [];
 
   // Form fields
   subject: string = '';
@@ -36,20 +45,35 @@ export class ReplyToPostComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: PostService,
     public languageService: LanguageService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private discussionService: DiscussionService
   ) {}
 
   ngOnInit(): void {
     this.postId = this.route.snapshot.paramMap.get('id');
 
     if (this.postId) {
-      this.postService.getPostById(this.postId).subscribe(
-        post => {
-          if (post) {
-            this.postToReply = post;
-            this.totalReplies = post.replies ? post.replies.length : 0;
+      this.discussionService.hämtaMedId(this.postId).subscribe(
+        inlägg => {
+          if (inlägg) {
+            this.postToReply = inlägg as DiskussionMedSvar;
+
+            // Map DiskussionInlägg properties to compatibility properties
+            this.postToReply.subject = this.postToReply.ämne;
+            this.postToReply.author = this.postToReply.författare;
+            this.postToReply.content = this.postToReply.inlägg;
+
+            // Map properties for replies if they exist
+            if (this.postToReply.replies && this.postToReply.replies.length > 0) {
+              this.postToReply.replies.forEach(reply => {
+                reply.subject = reply.ämne;
+                reply.author = reply.författare;
+                reply.content = reply.inlägg;
+              });
+            }
+
+            this.totalReplies = this.postToReply.replies?.length || 0;
             this.loadReplies();
           } else {
             console.error('Post not found');
@@ -72,13 +96,17 @@ export class ReplyToPostComponent implements OnInit {
   }
 
   loadReplies() {
-    if (this.postToReply) {
+    if (this.postToReply?.replies) {
       const startIndex = (this.currentPage - 1) * this.repliesPerPage;
       const endIndex = startIndex + this.repliesPerPage;
-      this.postToReply.replies = this.postToReply.replies || [];
-      this.postToReply.replies = this.postToReply.replies
-        .sort((a, b) => b.date.getTime() - a.date.getTime())
-        .slice(startIndex, endIndex);
+      this.postToReply.replies = this.postToReply.replies.slice(startIndex, endIndex);
+
+      // Ensure all replies have the compatibility properties set
+      this.postToReply.replies.forEach(reply => {
+        reply.subject = reply.ämne;
+        reply.author = reply.författare;
+        reply.content = reply.inlägg;
+      });
     }
   }
 
@@ -96,25 +124,22 @@ export class ReplyToPostComponent implements OnInit {
 
   submitReply() {
     if (this.postToReply && this.replyContent && this.postId) {
-      const replyPost: Post = {
-        id: new Date().toISOString(),
-        subject: `Svar på: ${this.postToReply.subject}`,
-        email: 'Anonym',
-        content: this.replyContent,
-        author: 'Författare',
-        date: new Date(),
-        replies: []
+      const reply: DiskussionInlägg = {
+        ämne: `Svar på: ${this.postToReply.ämne}`,
+        författare: this.author || 'Anonym',
+        epost: this.email || '',
+        inlägg: this.replyContent
       };
 
-      this.postToReply.replies = this.postToReply.replies || [];
-      this.postToReply.replies.unshift(replyPost);
-
-      this.totalReplies = this.postToReply.replies.length;
-      this.loadReplies();
-
-      this.postService.addReplyToPost(this.postId, replyPost).subscribe(post => {
-        this.replyContent = '';
-        this.resetForm();
+      this.discussionService.skickaReply(this.postId, reply).subscribe({
+        next: () => {
+          this.replyContent = '';
+          this.resetForm();
+          this.ngOnInit(); // ladda om tråden och replies
+        },
+        error: () => {
+          alert('Kunde inte skicka svar.');
+        }
       });
     }
   }

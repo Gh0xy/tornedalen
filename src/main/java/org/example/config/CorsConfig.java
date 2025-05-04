@@ -6,6 +6,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import java.util.List;
 
 @Configuration
 public class CorsConfig {
@@ -24,7 +25,7 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(); // Skapar en konfigurationskälla baserat på URL-sökvägar
         CorsConfiguration config = new CorsConfiguration(); // Skapar ett nytt CORS-konfigurationsobjekt
         config.setAllowCredentials(true); // Tillåter cookies och autentiseringsuppgifter att inkluderas i CORS-förfrågningar
-        config.addAllowedOrigin("http://localhost:4200"); // Tillåter förfrågningar från alla ursprung
+        config.setAllowedOriginPatterns(List.of("http://localhost:4200")); // Tillåter förfrågningar från alla ursprung
         config.addAllowedHeader("*"); // Tillåter alla headers i CORS-förfrågningar
         config.addExposedHeader("Authorization"); // Tillåter auktorisering förbi Spring Security
         config.addAllowedMethod("*"); // Tillåter alla HTTP-metoder (GET, POST, etc.) i CORS-förfrågningar

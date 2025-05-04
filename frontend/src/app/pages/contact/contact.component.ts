@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService, KontaktMeddelande } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, ReactiveFormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  constructor(private router: Router, private languageService: LanguageService) {}
+  form: FormGroup;
+
+  constructor(private router: Router, private languageService: LanguageService, private fb: FormBuilder, private contactService: ContactService) {
+    this.form = this.fb.group({
+      förnamn: ['', Validators.required],
+      efternamn: ['', Validators.required],
+      telefon: [''],
+      epost: ['', [Validators.required, Validators.email]],
+      meddelande: ['', [Validators.required, Validators.minLength(5)]]
+    });
+  }
 
   // Function to get translated text
   getTranslation(key: string): string {
@@ -82,5 +94,22 @@ export class ContactComponent {
     };
 
     return translations[key]?.[currentLanguage] || key;
+  }
+
+  submit(): void {
+    if (this.form.invalid) return;
+
+    const data: KontaktMeddelande = this.form.value;
+
+    this.contactService.skicka(data).subscribe({
+      next: () => {
+        alert('Meddelandet skickades!');
+        this.form.reset();
+      },
+      error: err => {
+        console.error('Fel vid skickande:', err);
+        alert('Något gick fel.');
+      }
+    });
   }
 }

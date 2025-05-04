@@ -4,7 +4,7 @@
     <!-- Button to open the modal -->
     <button class="elegant-button" (click)="openModal()">{{ translations['CREATE_POST'] }}</button>
   </div>
-  
+
   <div class="post-list-container">
     <!-- List of all saved posts -->
     <ul class="post-list" *ngIf="posts.length > 0; else emptyMsg">
@@ -16,7 +16,7 @@
           <span class="date">{{ p.date | date:'yyyy-MM-dd HH:mm' }}</span>
         </div>
 
-        <div class="view-post-button"> 
+        <div class="view-post-button">
           <button [routerLink]="['/reply-to-post', p.id]">{{ translations['SHOW'] }}</button>
         </div>
       </li>

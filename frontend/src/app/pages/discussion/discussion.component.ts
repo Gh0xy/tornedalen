@@ -5,6 +5,7 @@ import { PostService } from '../../services/post.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
+import { DiscussionService, DiskussionInlägg } from '../../services/discussion.service';
 
 @Component({
   selector: 'app-discussion',
@@ -54,7 +55,8 @@ export class DiscussionComponent implements OnInit {
     private router: Router,
     private postService: PostService,
     private languageService: LanguageService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private discussionService: DiscussionService
   ) {}
 
   ngOnInit() {
@@ -69,12 +71,32 @@ export class DiscussionComponent implements OnInit {
     });
   }
 
-  loadPosts() {
+  /*loadPosts() {
     this.postService.getPosts().subscribe(posts => {
       this.totalPosts = posts.length; // Set total number of posts
       this.posts = posts
         .sort((a, b) => b.date.getTime() - a.date.getTime()) // Sort newest first
         .slice((this.currentPage - 1) * this.postsPerPage, this.currentPage * this.postsPerPage); // Paginate posts
+    });
+  }*/
+
+  loadPosts() {
+    this.discussionService.hämtaAlla().subscribe(posts => {
+      const topLevel = posts.filter(p => !('parent' in p && p.parent !== null)); // bara inlägg utan parent
+
+      this.posts = topLevel.map((p) => ({
+        id: String(p.id), // ← detta måste med!
+        subject: p.ämne,
+        author: p.författare,
+        email: p.epost || '',
+        content: p.inlägg,
+        date: new Date() // eller p.skapad om du använder det
+      }));
+
+      this.totalPosts = this.posts.length;
+      this.posts = this.posts
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
+        .slice((this.currentPage - 1) * this.postsPerPage, this.currentPage * this.postsPerPage);
     });
   }
 
@@ -104,21 +126,40 @@ export class DiscussionComponent implements OnInit {
       return;
     }
 
-    const newPost: Post = {
+    /*const newPost: Post = {
       id: new Date().toISOString(), // Use ISO string for a unique, string-based ID
       subject: this.subject,
       author: this.author,
       email: this.email,
       content: this.content,
       date: new Date(),
+    };*/
+
+    const newPost: DiskussionInlägg = {
+      ämne: this.subject,
+      författare: this.author,
+      epost: this.email,
+      inlägg: this.content
     };
+
+    this.discussionService.skicka(newPost).subscribe({
+      next: () => {
+        alert('Inlägget skickades!');
+        this.resetForm();
+        this.closeModal();
+        this.loadPosts();
+      },
+      error: () => {
+        alert('Något gick fel!');
+      }
+    });
 
     this.closeModal();
 
-    this.postService.addPost(newPost).subscribe(post => {
+    /*this.postService.addPost(newPost).subscribe(post => {
       this.posts.unshift(post);
       this.resetForm();
-    });
+    });*/
   }
 
   resetForm() {

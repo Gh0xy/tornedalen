@@ -6,7 +6,7 @@
         <p>{{ postToReply.content }}</p>
         <div class="meta">
           <span class="author">{{ postToReply.author }}</span>&nbsp;
-          <span class="date">{{ postToReply.date | date:'yyyy-MM-dd HH:mm' }}</span>
+          <span class="date" *ngIf="postToReply.date">{{ postToReply.date | date:'yyyy-MM-dd HH:mm' }}</span>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
             <li *ngFor="let reply of postToReply.replies">
               <p>{{ reply.author }}</p>
               <p>{{ reply.content }}</p>
-              <p><span class="date">{{ reply.date | date:'yyyy-MM-dd HH:mm' }}</span></p>
+              <p><span class="date" *ngIf="reply.date">{{ reply.date | date:'yyyy-MM-dd HH:mm' }}</span></p>
             </li>
           </ul>
         </div>
