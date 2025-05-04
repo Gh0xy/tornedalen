@@ -10,9 +10,10 @@ Se till att Docker Desktop är installerat:👉 https://www.docker.com/products/
 
 I projektmappen, kör:
 
-docker compose up -d
+För att starta: docker compose up -d
+För att avsluta: docker compose down
 
-Detta startar en MySQL-container med följande inställningar:
+Detta startar/avslutar en MySQL-container med följande inställningar:
 
 Databasnamn: tornedalen
 Användare: root
