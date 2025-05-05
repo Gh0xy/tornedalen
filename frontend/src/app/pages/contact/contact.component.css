@@ -26,6 +26,31 @@ body {
   flex: 1;
   width: 100%;
 }
+
+.page-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: 'Georgia', serif;
+  color: #2e2e2e;
+  margin-top: 3.65rem;
+  margin-bottom: 0rem;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.contact-info-text {
+  text-align: center;
+}
+
+.page-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #aaa;
+  margin: 0.75rem auto 0;
+  opacity: 0.5;
+}
   
   /* Mobilanpassning: Specifika CSS-stilar för skärmar på max 768 pixlar, vilket inkluderar de flesta mobiler och surfplattor. Stilarna som definieras inom en media query kommer att överrida tidigare CSS-regler när skärmens bredd är mindre än eller lika med 768 pixlar. Detta beror på hur CSS- specificitet och cascade fungerar*/
   /* Media query för mindre skärmar */
