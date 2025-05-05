@@ -6,6 +6,9 @@ import { Post } from '../models/post.model';
 @Injectable({
   providedIn: 'root'
 })
+
+
+// ta fram för original
 export class PostService {
   private posts: Post[] = []; // Lokalt minne för inlägg
 
@@ -81,3 +84,44 @@ export class PostService {
     });
   }
 }
+
+
+/*
+
+// kommentera bort för original (http post anrop till server/databas istället för localstorage)
+export class PostService {
+  
+  private apiUrl = 'http://localhost:3000/api/posts'; // Backend-URL
+
+  constructor(private http: HttpClient) {}
+
+  // Hämta alla inlägg
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl);
+  }
+
+  // Hämta ett specifikt inlägg
+  getPostById(id: string): Observable<Post> {
+    return this.http.get<Post>(`${this.apiUrl}/${id}`);
+  }
+
+  // Lägg till ett nytt inlägg
+  addPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(this.apiUrl, post);
+  }
+
+  // Radera ett inlägg
+  deletePost(postId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${postId}`);
+  }
+
+  // I post.service.ts
+addReplyToPost(postId: string, reply: Post): Observable<Post> {
+  const url = `${this.apiUrl}/${postId}/replies`;
+  return this.http.post<Post>(url, reply);
+}
+}
+  
+*/
+
+
