@@ -262,68 +262,6 @@ header h1 a {
   background-color: #eff4f5;
 }
 
-/* CSS-stilar för dropdown-meny-knapp */
-.login_button button {
-  width: 100px;
-  /* Bredd på knappen */
-  height: 30px;
-  /* Höjd på knappen */
-  font-size: 14px;
-  /* Storlek på texten */
-  padding: 0px;
-  /* Justering av knapptassar */
-  background-color: #ffffff;
-  /* Vit bakgrund */
-  color: #0000ff;
-  /* Svart textfärg */
-  border: 1px solid #0000ff;
-  /* Blå kantlinje */
-  border-radius: 5px;
-  /* Rundade hörn */
-  cursor: pointer;
-  /* Pekaren ändras till en hand */
-  z-index: 1000;
-}
-
-/*CSS-stilar för objekt av klassen .login_button, dvs elementet som utgör en logga in-knapp på sidan. */
-.login_button {
-  position: fixed; /* Fixera knappar så de alltid syns på sidan, även om man skrollar ned.*/
-  top: 10px; 
-  right: 10px; 
-  padding: 10px;
-  z-index: 1000;
-}
-
-/* CSS-stilar för dropdown-meny-knapp */
-.subscribe_button button {
-  width: 100px;
-  /* Bredd på knappen */
-  height: 30px;
-  /* Höjd på knappen */
-  font-size: 14px;
-  /* Storlek på texten */
-  padding: 0px;
-  /* Justering av knapptassar */
-  background-color: hwb(41 0% 0%);
-  /* Vit bakgrund */
-  color: #0000ff;
-  /* Svart textfärg */
-  border: 1px solid #0000ff;
-  /* Blå kantlinje */
-  border-radius: 5px;
-  /* Rundade hörn */
-  cursor: pointer;
-  /* Pekaren ändras till en hand */
-  z-index: 1000;
-}
-/*CSS-stilar för objekt av klassen .subscribe_button, dvs elementet som utgör en bli medlem-knapp på sidan. */
-.subscribe_button {
-  position: fixed; 
-  top: 10px; 
-  right: 120px; 
-  padding: 10px; 
-  z-index: 1000;
-}
   
   /* Styling för alla länkar */
   a {
@@ -608,25 +546,7 @@ header h1 a {
     /* Visar en pekare (hand) när användaren håller muspekaren över knapparna, vilket indikerar att knapparna är klickbara */
   }
   
-  fieldset {
-    border: none;
-    padding: 10; /* Optional: Adjust padding if needed */
-    margin: 0; /* Optional: Adjust margin for alignment */
-  }
-  
-  .image-row {
-    display: flex;
-    justify-content: center; /* Centrerar bilderna horisontellt */
-    gap: 10px; /* Mellanrum mellan bilderna */
-    margin-top: 20px; /* Avstånd från toppen */
-  }
-  
-  .image-row img {
-    width: 200px; /* Justera storleken på bilderna */
-    height: auto; /* Bevara proportionerna */
-    border: 1px solid #ddd; /* (Valfritt) Lägg till en ram runt bilderna */
-    border-radius: 5px; /* (Valfritt) Gör hörnen rundade */
-  }
+ 
   
   /* Används specifikt för bild på index-sidan, ändrar bildens storlek. */
   .general-image {
