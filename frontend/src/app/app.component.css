@@ -219,6 +219,7 @@ header h1 a {
   cursor: pointer;
   /* Pekaren ändras till en hand */
   position: fixed; 
+  Z-index: 1100;
 }
 
 /*CSS-stilar för objekt av klassen .dropdown, dvs elementet som utgör en dropdown-meny på sidan. */
@@ -228,6 +229,7 @@ header h1 a {
   left: 10px; 
   padding: 10px;
   display: inline-block; 
+  z-index: 1100;
 }
 
 .dropdown button:hover{
@@ -655,7 +657,7 @@ footer a:hover {
 .language-selector {
   position: fixed;
   top: 25px;
-  right: 230px;
+  right: 50px;
   display: inline-block;
   margin-right: 10px;
   z-index: 1000;
@@ -678,7 +680,7 @@ footer a:hover {
 .language-bar {
   position: fixed;
   top: 55px;
-  right: 234px;
+  right: 54px;
   display: flex;
   flex-direction: column;
   background: #fff;
