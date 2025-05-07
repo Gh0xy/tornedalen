@@ -13,6 +13,7 @@ import { LanguageService } from '../../services/language.service';
   templateUrl: './discussion.component.html',
   styleUrls: ['./discussion.component.css']
 })
+
 export class DiscussionComponent implements OnInit {
   posts: Post[] = [];
 
@@ -103,15 +104,16 @@ export class DiscussionComponent implements OnInit {
       alert(this.translations['FILL_ALL_FIELDS']); // Use bracket notation
       return;
     }
-
+    
     const newPost: Post = {
-      id: new Date().toISOString(), // Use ISO string for a unique, string-based ID
+      id: new Date().toISOString(), // TA FRAM FÖR ORIGINAL/KOMMENTERA BORT FÖR BACKEND. Use ISO string for a unique, string-based ID (kommentera bort detta för generera ID via databas) 
       subject: this.subject,
       author: this.author,
       email: this.email,
       content: this.content,
       date: new Date(),
     };
+
 
     this.closeModal();
 

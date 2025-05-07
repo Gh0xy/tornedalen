@@ -1,17 +1,52 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LanguageService } from '../../services/language.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-  imports: [RouterModule],
+  standalone: true, 
+  imports: [RouterModule,FormsModule,HttpClientModule,CommonModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  constructor(private router: Router, private languageService: LanguageService) {}
+  constructor(private router: Router, private http: HttpClient, private languageService: LanguageService) {}
+  form = {
+    first_name: '',
+    last_name: '',
+    phone: '',
+    email: '',
+    message: ''
+  };
 
+  successMessage = '';
+  errorMessage = '';
+
+  submitForm() {
+    this.http.post('/api/contact', this.form).subscribe({
+      next: (response: any) => {
+        this.successMessage = 'Tack! Ditt meddelande har skickats.';
+        this.errorMessage = '';
+        this.form = {
+          first_name: '',
+          last_name: '',
+          phone: '',
+          email: '',
+          message: ''
+        };
+      },
+      error: (error) => {
+        console.error('Fel vid skickande:', error);
+        this.successMessage = '';
+        this.errorMessage = error?.error?.error || 'Något gick fel. Försök igen.';
+      }
+    }); 
+  }
+  
   // Function to get translated text
   getTranslation(key: string): string {
     const currentLanguage = this.languageService.getLanguage();
