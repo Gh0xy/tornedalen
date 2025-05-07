@@ -77,21 +77,21 @@ export class AppComponent {
         sv: 'Mer',
         en: 'More',
         fi: 'Lisää',
-        me: 'Lisää',
+        me: 'Enämbi',
         sa: 'Mearra'
       },
       LOGIN: {
         sv: 'Logga in',
         en: 'Login',
         fi: 'Kirjaudu sisään',
-        me: 'Kirjaudu sisään',
+        me: 'Kirjaudu sissään',
         sa: 'Logge sisa'
       },
       SUBSCRIBE: {
         sv: 'Bli medlem',
         en: 'Subscribe',
         fi: 'Liity jäseneksi',
-        me: 'Liity jäseneksi',
+        me: 'Liity jäsenheksi',
         sa: 'Diŋgo'
       },
       ABOUT: {
@@ -107,7 +107,42 @@ export class AppComponent {
         fi: 'Tornedalens Museo',
         me: 'Tornedalens Museo',
         sa: 'Meänmuseo'
-      }
+      },
+      LANGUAGE_SWEDISH: {
+        sv: 'Svenska',
+        en: 'Swedish',
+        fi: 'Ruotsi',
+        me: 'Ruotsi',
+        sa: 'Ruoŧagiella'
+      },
+      LANGUAGE_MEANKIELI: {
+        sv: 'Meänkieli',
+        en: 'Meänkieli',
+        fi: 'Meänkieli',
+        me: 'Meänkieli',
+        sa: 'Meänkieli'
+      },
+      LANGUAGE_FINNISH: {
+        sv: 'Finska',
+        en: 'Finnish',
+        fi: 'Suomi',
+        me: 'Suomi',
+        sa: 'Suopmagiella'
+      },
+      LANGUAGE_SAMI: {
+        sv: 'Nordsamiska',
+        en: 'Northern Sami',
+        fi: 'Pohjoissaame',
+        me: 'Ruijansaame',
+        sa: 'Davvisámegiella'
+      },
+      LANGUAGE_ENGLISH: {
+        sv: 'Engelska',
+        en: 'English',
+        fi: 'Englanti',
+        me: 'Englanti',
+        sa: 'Eaŋgalsgiella'
+      },
     };
 
     return translations[key]?.[currentLanguage] || key;

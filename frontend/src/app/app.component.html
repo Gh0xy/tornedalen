@@ -19,19 +19,24 @@
   </button>
   <div class="language-bar" *ngIf="showLanguageBar">
     <button class="flag-button" (click)="changeLanguage('sv')">
-      <img src="assets/bilder/sweden.png" alt="Svenska">
+      <img src="assets/bilder/sweden.png" alt="{{ getTranslation('LANGUAGE_SWEDISH') }}">
+      <span>{{ getTranslation('LANGUAGE_SWEDISH') }}</span>
     </button>
     <button class="flag-button" (click)="changeLanguage('me')">
-      <img src="assets/bilder/meankieli.png" alt="Meänkieli">
+      <img src="assets/bilder/meankieli.png" alt="{{ getTranslation('LANGUAGE_MEANKIELI') }}">
+      <span>{{ getTranslation('LANGUAGE_MEANKIELI') }}</span>
     </button>
     <button class="flag-button" (click)="changeLanguage('fi')">
-      <img src="assets/bilder/finland.png" alt="Finska">
+      <img src="assets/bilder/finland.png" alt="{{ getTranslation('LANGUAGE_FINNISH') }}">
+      <span>{{ getTranslation('LANGUAGE_FINNISH') }}</span>
     </button>
     <button class="flag-button" (click)="changeLanguage('sa')">
-      <img src="assets/bilder/sami.png" alt="Nordsamiska">
+      <img src="assets/bilder/sami.png" alt="{{ getTranslation('LANGUAGE_SAMI') }}">
+      <span>{{ getTranslation('LANGUAGE_SAMI') }}</span>
     </button>
     <button class="flag-button" (click)="changeLanguage('en')">
-      <img src="assets/bilder/uk.png" alt="Engelska">
+      <img src="assets/bilder/uk.png" alt="{{ getTranslation('LANGUAGE_ENGLISH') }}">
+      <span>{{ getTranslation('LANGUAGE_ENGLISH') }}</span>
     </button>
   </div>
 </div>

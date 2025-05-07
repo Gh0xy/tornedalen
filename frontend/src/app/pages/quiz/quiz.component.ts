@@ -69,14 +69,14 @@ export class QuizComponent {
         sv: 'Testa din kunskap i vårt quiz!',
         en: 'Test your knowledge in our quiz!',
         fi: 'Testaa tietosi tietovisassamme!',
-        me: 'Testaa tietosi tietovisassamme!',
+        me: 'Kokeile tietosi meän tietovisassa!',
         sa: 'Geahča dieđuid min jearahallamis!'
       },
       QUIZ_QUESTION_1: {
         sv: 'Vart ligger konsthall tornedalen?',
         en: 'Where is Konsthall Tornedalen located?',
         fi: 'Missä Konsthall Tornedalen sijaitsee?',
-        me: 'Missä Konsthall Tornedalen sijaitsee?',
+        me: 'Missä Konsthall Tornedalen on?',
         sa: 'Gosa lea Konsthall Tornedalen?'
       },
       QUIZ_OPTION_1_1: { sv: 'Övertorneå', en: 'Övertorneå', fi: 'Ylitornio', me: 'Ylitornio', sa: 'Duortnus' },
@@ -87,7 +87,7 @@ export class QuizComponent {
         sv: 'Vilken känd konstnär skapade en skulptur som är tänkt att stå i Kiruna?',
         en: 'Which famous artist created a sculpture that is intended to stand in Kiruna?',
         fi: 'Kuka kuuluisa taiteilija loi veistoksen, joka on tarkoitettu seisomaan Kiirunassa?',
-        me: 'Kuka kuulus taiteilija loi veistoksen, joka meinaa seistä Kiirunassa?',
+        me: 'Kuka tunnettu taiteilija teki veistoksen, joka on tarkoitettu seisomaan Kiirunassa?',
         sa: 'Gos lei mii geavahe goahti, moai lea dat veistta, mii leaba deavdit Kiirunás?'
       },
       QUIZ_OPTION_2_1: { sv: 'Pablo Picasso', en: 'Pablo Picasso', fi: 'Pablo Picasso', me: 'Pablo Picasso', sa: 'Pablo Picasso' },
@@ -98,7 +98,7 @@ export class QuizComponent {
         sv: 'Vad är väderstationen i Vitsaniemi för någonting?',
         en: 'What is the weather station in Vitsaniemi?',
         fi: 'Mikä on Vitsaniemen sääasema?',
-        me: 'Mitä on sääasema Vitsaniemissä?',
+        me: 'Mikä on sääasema Vitsaniemissä?',
         sa: 'Maid lea vejraasastuvdna Vitsaniemis?'
       },
       QUIZ_OPTION_3_1: { sv: 'En plats där konstnärer bjuds in för att bo och fördjupa sig i det lokala vädret.', en: 'A place where artists are invited to live and immerse themselves in the local weather.', fi: 'Paikka, jossa taiteilijat kutsutaan elämään ja uppoutumaan paikalliseen säähän.', me: 'Paikka, missä taiteilijat kutsutaan elämään ja uppoutumaan paikalliseen säähän.', sa: 'Golbma, gos goahtiide vuollán álgguheapmi ja dálkkátit lokála vejras.' },

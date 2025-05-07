@@ -803,5 +803,17 @@ footer a:hover {
 }
 
 .language-bar .flag-button {
+  display: flex;
+  align-items: center; /* Align flag and text vertically */
   margin: 2px 0;
+  gap: 10px; /* Space between flag and text */
+}
+
+.language-bar .flag-button {
+  margin: 2px 0;
+}
+
+.flag-button span {
+  font-size: 14px; /* Adjust text size */
+  color: #333; /* Text color */
 }
