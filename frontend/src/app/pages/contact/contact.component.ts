@@ -59,11 +59,18 @@ export class ContactComponent {
         sa: 'Oktavuohta'
       },
       CONTACT_INTRO: {
-        sv: 'Ställ en fråga till oss!',
-        en: 'Ask us a question!',
-        fi: 'Esitä meille kysymys!',
-        me: 'Esitä meille kysymys!',
+        sv: 'Kontakta oss',
+        en: 'Contact us',
+        fi: 'Ota meihin yhteyttä',
+        me: 'Ota meihin yhteyttä',
         sa: 'Geahča muhtin jearaldaga munnje!'
+      },
+      FIND_US: {
+        sv: 'Hitta hit',
+        en: 'Find us',
+        fi: 'Löydä meidät',
+        me: 'Löydä meidät',
+        sa: 'Gávnnat deike'
       },
       CONTACT_FORM_TITLE: {
         sv: 'Kontaktformulär',
@@ -99,6 +106,13 @@ export class ContactComponent {
         fi: 'Sähköpostiosoite',
         me: 'Sähköpostiosoite',
         sa: 'E-poasta čujuhus'
+      },
+      ADRESS: {
+        sv: 'Adress',
+        en: 'Address',
+        fi: 'Osoite',
+        me: 'Osoite',
+        sa: 'Čujuhus'
       },
       MESSAGE: {
         sv: 'Meddelande',
