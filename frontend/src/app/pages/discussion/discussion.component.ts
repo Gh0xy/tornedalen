@@ -44,6 +44,7 @@ export class DiscussionComponent implements OnInit {
     CONTENT: '',
     SUBMIT_POST: '',
     FILL_ALL_FIELDS: '',
+    LEAVE_A_COMMENT: '',
     SHOW: '',
     PREVIOUS: '',
     NEXT: '',
@@ -192,6 +193,13 @@ export class DiscussionComponent implements OnInit {
         fi: 'Täytä kaikki pakolliset kentät!',
         me: 'Täytä kaikki pakolliset kentät!',
         sa: 'Fylli buot dárbbašlaš gávppit!'
+      },
+      LEAVE_A_COMMENT: {
+        sv: 'Kommentera inlägg',
+        en: 'Leave a comment',
+        fi: 'Jätä kommentti',
+        me: 'Kirjoita kommentti',
+        sa: 'Čális ráđđe'
       },
       SHOW: {
         sv: 'Visa',
