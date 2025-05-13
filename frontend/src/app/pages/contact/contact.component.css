@@ -1,4 +1,10 @@
-
+  /* Ställ upp element vertikalt vid minskad skärmstorlek */
+  @media (max-width: 1300px) {
+    .article-container {
+      display: column;
+      flex-direction: column;
+    }
+  }
 
 .page-title {
   text-align: center;
