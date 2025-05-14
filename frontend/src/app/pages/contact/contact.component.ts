@@ -36,10 +36,10 @@ export class ContactComponent {
         sa: 'Oktavuohta'
       },
       CONTACT_INTRO: {
-        sv: 'Ställ en fråga till oss!',
-        en: 'Ask us a question!',
-        fi: 'Esitä meille kysymys!',
-        me: 'Esitä meille kysymys!',
+        sv: 'Kontakta oss',
+        en: 'Contact us',
+        fi: 'Ota meihin yhteyttä',
+        me: 'Ota meihin yhteyttä',
         sa: 'Geahča muhtin jearaldaga munnje!'
       },
       CONTACT_FORM_TITLE: {
@@ -98,6 +98,13 @@ export class ContactComponent {
         me: 'Löydä meidät',
         sa: 'avvaktar att chatgpt-gräns påfylls'
       },
+      CONTACT_INFO: {
+        sv: 'Kontaktinfo',
+        en: 'Contact info',
+        fi: 'Yhteystiedot',
+        me: 'Kontaktitietot',
+        sa: 'Kontaktadieđut'
+      },
       ADRESS: {
         sv: 'Adress',
         en: 'Address',
@@ -105,6 +112,34 @@ export class ContactComponent {
         me: 'Osoite',
         sa: 'avvaktar att chatgpt-gräns påfylls'
       },
+      OPENING_HOURS: {
+  sv: 'Öppettider',
+  en: 'Opening hours',
+  fi: 'Aukioloajat',
+  me: 'Aukioloajat',
+  sa: 'Aukioloajat'
+},
+HOURS_WEEKDAYS: {
+  sv: 'Tisdag - Fredag: 08:00 - 15:00',
+  en: 'Tuesday - Friday: 08:00 - 15:00',
+  fi: 'Tiistai - Perjantai: 08:00 - 15:00',
+  me: 'Tiistai - Perjantai: 08:00 - 15:00',
+  sa: 'Duvvon - Friggodat: 08:00 - 15:00'
+},
+HOURS_WEEKEND: {
+  sv: 'Lördag - Söndag: 11:00 - 15:00',
+  en: 'Saturday - Sunday: 11:00 - 15:00',
+  fi: 'Lauantai - Sunnuntai: 11:00 - 15:00',
+  me: 'Lauantai - Sunnuntai: 11:00 - 15:00',
+  sa: 'Lávvardat - Sondagat: 11:00 - 15:00'
+},
+HOURS_MONDAY: {
+  sv: 'Måndag: Stängt',
+  en: 'Monday: Closed',
+  fi: 'Maanantai: Suljettu',
+  me: 'Maanantai: Suljettu',
+  sa: 'Mánnodaga: Čáhkká'
+},
     };
 
     return translations[key]?.[currentLanguage] || key;
