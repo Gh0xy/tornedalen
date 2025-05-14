@@ -90,7 +90,21 @@ export class ContactComponent {
         fi: 'Lähetä',
         me: 'Lähetä',
         sa: 'Sádde'
-      }
+      },
+      FIND_US: {
+        sv: 'Hitta hit',
+        en: 'Find us',
+        fi: 'Löydä meidät',
+        me: 'Löydä meidät',
+        sa: 'avvaktar att chatgpt-gräns påfylls'
+      },
+      ADRESS: {
+        sv: 'Adress',
+        en: 'Address',
+        fi: 'Osoite',
+        me: 'Osoite',
+        sa: 'avvaktar att chatgpt-gräns påfylls'
+      },
     };
 
     return translations[key]?.[currentLanguage] || key;

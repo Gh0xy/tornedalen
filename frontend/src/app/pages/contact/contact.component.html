@@ -1,3 +1,25 @@
+<div class="article-text">
+    <h1 class="page-title">{{ getTranslation('CONTACT_TITLE') }}</h1>
+    
+</div>
+
+<div class="article-container">
+    
+<section id="topic-articles">
+    <div class="form-container">
+    <h2> {{ getTranslation('FIND_US') }}</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5334.771784704358!2d24.140186708026523!3d65.84733156538248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d547766d72c619%3A0x5dd989fdaecfddd6!2sMuseum%20of%20Tornio%20Valley!5e0!3m2!1sen!2sse!4v1746460646780!5m2!1sen!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<ul>
+    <li><div class="contact-info-text">{{ getTranslation('ADRESS') }}: Torikatu 4, 95400 Tornio, Finland</div></li>
+    <li><div class="contact-info-text">{{ getTranslation('PHONE') }}: +358 50 5971559</div></li>
+    <li><div class="contact-info-text">{{ getTranslation('EMAIL') }}: tornedalen&#64;museum.com</div></li>
+    </ul>
+</div>
+</section>
+
+
+<section id="topic-articles">
+    <div class="form-container">
 <form class="form" [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-group">
     <label for="förnamn">{{ getTranslation('FIRST_NAME') }}:</label>
@@ -27,3 +49,5 @@
 
   <button type="submit" [disabled]="form.invalid">{{ getTranslation('SUBMIT') }}</button>
 </form>
+</div>
+</section>
