@@ -68,13 +68,6 @@ export class ExhibitsComponent {
         me: 'Täällä voit tutustua nykyisiin ja aiempiin näyttelyihimme.',
         sa: 'Dáppe sáhtát ohcangilvvut dálá ja ovdal bihttáid.'
       },
-      EXHIBITS_NO_CURRENT: {
-        sv: 'Det finns inga aktuella utställningar just nu.',
-        en: 'There are no current exhibits at the moment.',
-        fi: 'Tällä hetkellä ei ole käynnissä olevia näyttelyitä.',
-        me: 'Tällä hetkellä ei ole käynnissä olevia näyttelyitä.',
-        sa: 'Dál eai leat dálá bihttá.'
-      },
       RATING: {
         sv: 'Betyg',
         en: 'Rating',

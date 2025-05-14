@@ -23,17 +23,17 @@ export class QuizComponent {
     {
       question: 'QUIZ_QUESTION_1',
       options: ['QUIZ_OPTION_1_1', 'QUIZ_OPTION_1_2', 'QUIZ_OPTION_1_3', 'QUIZ_OPTION_1_4'],
-      answer: 2
+      answer: 1
     },
     {
       question: 'QUIZ_QUESTION_2',
       options: ['QUIZ_OPTION_2_1', 'QUIZ_OPTION_2_2', 'QUIZ_OPTION_2_3', 'QUIZ_OPTION_2_4'],
-      answer: 1
+      answer: 0
     },
     {
       question: 'QUIZ_QUESTION_3',
       options: ['QUIZ_OPTION_3_1', 'QUIZ_OPTION_3_2', 'QUIZ_OPTION_3_3', 'QUIZ_OPTION_3_4'],
-      answer: 1
+      answer: 0
     }
   ];
 
@@ -69,42 +69,42 @@ export class QuizComponent {
         sv: 'Testa din kunskap i vårt quiz!',
         en: 'Test your knowledge in our quiz!',
         fi: 'Testaa tietosi tietovisassamme!',
-        me: 'Testaa tietosi tietovisassamme!',
+        me: 'Kokeile tietosi meän tietovisassa!',
         sa: 'Geahča dieđuid min jearahallamis!'
       },
       QUIZ_QUESTION_1: {
-        sv: 'Vad är huvudstaden i Frankrike?',
-        en: 'What is the capital of France?',
-        fi: 'Mikä on Ranskan pääkaupunki?',
-        me: 'Mikä on Ranskan pääkaupunki?',
-        sa: 'Mii lea Frankriikka gávpot?'
+        sv: 'Vart ligger konsthall tornedalen?',
+        en: 'Where is Konsthall Tornedalen located?',
+        fi: 'Missä Konsthall Tornedalen sijaitsee?',
+        me: 'Missä Konsthall Tornedalen on?',
+        sa: 'Gosa lea Konsthall Tornedalen?'
       },
-      QUIZ_OPTION_1_1: { sv: 'Berlin', en: 'Berlin', fi: 'Berliini', me: 'Berliini', sa: 'Berlin' },
-      QUIZ_OPTION_1_2: { sv: 'Madrid', en: 'Madrid', fi: 'Madrid', me: 'Madrid', sa: 'Madrid' },
-      QUIZ_OPTION_1_3: { sv: 'Paris', en: 'Paris', fi: 'Pariisi', me: 'Pariisi', sa: 'Paris' },
-      QUIZ_OPTION_1_4: { sv: 'Lissabon', en: 'Lisbon', fi: 'Lissabon', me: 'Lissabon', sa: 'Lisboa' },
+      QUIZ_OPTION_1_1: { sv: 'Övertorneå', en: 'Övertorneå', fi: 'Ylitornio', me: 'Ylitornio', sa: 'Duortnus' },
+      QUIZ_OPTION_1_2: { sv: 'Vitsaniemi', en: 'Vitsaniemi', fi: 'Vitsanemia', me: 'Vitsanemia', sa: 'Vitsaniemi' },
+      QUIZ_OPTION_1_3: { sv: 'Haparanda', en: 'Haparanda', fi: 'Haaparanta', me: 'Haaparanta', sa: 'Háhpáránnda' },
+      QUIZ_OPTION_1_4: { sv: 'Kalix', en: 'Kalix', fi: 'Verhiö', me: 'Kainuu ', sa: 'Gáláhis' },
       QUIZ_QUESTION_2: {
-        sv: 'Vilken planet kallas för den röda planeten?',
-        en: 'Which planet is known as the Red Planet?',
-        fi: 'Mikä planeetta tunnetaan punaisena planeettana?',
-        me: 'Mikä planeetta tunnetaan punaisena planeettana?',
-        sa: 'Mii lea rukses plánet?'
+        sv: 'Vilken känd konstnär skapade en skulptur som är tänkt att stå i Kiruna?',
+        en: 'Which famous artist created a sculpture that is intended to stand in Kiruna?',
+        fi: 'Kuka kuuluisa taiteilija loi veistoksen, joka on tarkoitettu seisomaan Kiirunassa?',
+        me: 'Kuka tunnettu taiteilija teki veistoksen, joka on tarkoitettu seisomaan Kiirunassa?',
+        sa: 'Gos lei mii geavahe goahti, moai lea dat veistta, mii leaba deavdit Kiirunás?'
       },
-      QUIZ_OPTION_2_1: { sv: 'Jorden', en: 'Earth', fi: 'Maa', me: 'Maa', sa: 'Eanan' },
-      QUIZ_OPTION_2_2: { sv: 'Mars', en: 'Mars', fi: 'Mars', me: 'Mars', sa: 'Mars' },
-      QUIZ_OPTION_2_3: { sv: 'Jupiter', en: 'Jupiter', fi: 'Jupiter', me: 'Jupiter', sa: 'Jupiter' },
-      QUIZ_OPTION_2_4: { sv: 'Venus', en: 'Venus', fi: 'Venus', me: 'Venus', sa: 'Venus' },
+      QUIZ_OPTION_2_1: { sv: 'Pablo Picasso', en: 'Pablo Picasso', fi: 'Pablo Picasso', me: 'Pablo Picasso', sa: 'Pablo Picasso' },
+      QUIZ_OPTION_2_2: { sv: 'Leonardo Da Vinci', en: 'Leonardo Da Vinci', fi: 'Leonardo Da Vinci', me: 'Leonardo Da Vinci', sa: 'Leonardo Da Vinci' },
+      QUIZ_OPTION_2_3: { sv: 'Michelangelo', en: 'Michelangelo', fi: 'Michelangelo', me: 'Michelangelo', sa: 'Michelangelo' },
+      QUIZ_OPTION_2_4: { sv: 'Claude Monet', en: 'Claude Monet', fi: 'Claude Monet', me: 'Claude Monet', sa: 'Claude Monet' },
       QUIZ_QUESTION_3: {
-        sv: 'Vad är 5 + 3?',
-        en: 'What is 5 + 3?',
-        fi: 'Mikä on 5 + 3?',
-        me: 'Mikä on 5 + 3?',
-        sa: 'Mii lea 5 + 3?'
+        sv: 'Vad är väderstationen i Vitsaniemi för någonting?',
+        en: 'What is the weather station in Vitsaniemi?',
+        fi: 'Mikä on Vitsaniemen sääasema?',
+        me: 'Mikä on sääasema Vitsaniemissä?',
+        sa: 'Maid lea vejraasastuvdna Vitsaniemis?'
       },
-      QUIZ_OPTION_3_1: { sv: '5', en: '5', fi: '5', me: '5', sa: '5' },
-      QUIZ_OPTION_3_2: { sv: '8', en: '8', fi: '8', me: '8', sa: '8' },
-      QUIZ_OPTION_3_3: { sv: '10', en: '10', fi: '10', me: '10', sa: '10' },
-      QUIZ_OPTION_3_4: { sv: '6', en: '6', fi: '6', me: '6', sa: '6' },
+      QUIZ_OPTION_3_1: { sv: 'En plats där konstnärer bjuds in för att bo och fördjupa sig i det lokala vädret.', en: 'A place where artists are invited to live and immerse themselves in the local weather.', fi: 'Paikka, jossa taiteilijat kutsutaan elämään ja uppoutumaan paikalliseen säähän.', me: 'Paikka, missä taiteilijat kutsutaan elämään ja uppoutumaan paikalliseen säähän.', sa: 'Golbma, gos goahtiide vuollán álgguheapmi ja dálkkátit lokála vejras.' },
+      QUIZ_OPTION_3_2: { sv: 'En plats där man kan mäta aktuella temperaturen.', en: 'A place where you can measure the current temperature.', fi: 'Paikka, jossa voit mitata nykyisen lämpötilan.', me: 'Paikka, missä voit mitta sitä nykyistä lämpötilaa.', sa: 'Golbma, gos de sáhttá mii dáhpáhus dállu mátkamuorra.' },
+      QUIZ_OPTION_3_3: { sv: 'En plats där man kan mäta vindhastighet.', en: 'A place where you can measure wind speed.', fi: 'Paikka, jossa voit mitata tuulen nopeutta.', me: 'Paikka, missä voit mitta tuulen nopeutta.', sa: 'Golbma, gos de sáhttá mii miihttá tuulá duvvan.' },
+      QUIZ_OPTION_3_4: { sv: 'En plats där man kan mäta vindstyrkan.', en: 'A place where you can measure wind strength.', fi: 'Paikka, jossa voit mitata tuulen voimakkuutta.', me: 'Paikka, missä voit mitta tuulen voimakkuutta.', sa: 'Golbma, gos de sáhttá mii miihttá tuulá veahkki.' },
       YOUR_SCORE: {
         sv: 'Din poäng',
         en: 'Your score',

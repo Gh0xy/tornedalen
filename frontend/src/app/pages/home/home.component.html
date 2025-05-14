@@ -6,6 +6,12 @@
   <p>
     {{ getTranslation('EXPLORE_RESOURCES') }}
   </p>
+<h2>{{ getTranslation('OPENING_HOURS') }}</h2>
+<ul>
+  <li>{{ getTranslation('HOURS_WEEKDAYS') }}</li>
+  <li>{{ getTranslation('HOURS_WEEKEND') }}</li>
+  <li>{{ getTranslation('HOURS_MONDAY') }}</li>
+</ul>
 
   <h2>{{ getTranslation('EXPLORE_RESOURCES') }}</h2>
   <ul>
@@ -14,6 +20,6 @@
     <li><a routerLink="/discussion">{{ getTranslation('DISCUSSION') }}</a></li>
     <li><a routerLink="/contact">{{ getTranslation('CONTACT') }}</a></li>
   </ul>
-
+  
   <img src="assets/bilder/museum_utsida.jpg" [alt]="getTranslation('IMAGE_ALT')" class="general-image">
 </div>
